@@ -47,3 +47,25 @@ extension View {
             .shadow(color: .black.opacity(0.16), radius: 24, x: 0, y: 0)
     }
 }
+
+extension View {
+    func placeholder<Content: View>(
+        when shouldShow: Bool,
+        alignment: Alignment = .leading,
+        @ViewBuilder placeholder: () -> Content) -> some View {
+
+        ZStack(alignment: alignment) {
+            placeholder().opacity(shouldShow ? 1 : 0)
+            self
+        }
+    }
+    
+    public func rectReader(_ binding: Binding<CGFloat>) -> some View {
+            return GeometryReader { gp -> Color in
+                DispatchQueue.main.async {
+                    binding.wrappedValue = max(binding.wrappedValue, gp.frame(in: .local).width)
+                }
+                return Color.clear
+            }
+        }
+}
