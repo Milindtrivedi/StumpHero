@@ -18,7 +18,9 @@ class AuthModel {
         
         if isConnectedToNetwork() {
             if username.localizedCaseInsensitiveContains("milind") && password.localizedCaseInsensitiveContains("apple") {
-                completion(.success("authenticated"))
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
+                    completion(.success("authenticated"))
+                }
             } else {
                 throw MyError.invalidInput(message: "Username and Password is incorrect")
             }
