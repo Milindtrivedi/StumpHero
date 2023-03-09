@@ -17,11 +17,11 @@ class getMatchCaseImpl: getMatchCase {
         
         if isConnectedToNetwork() {
             
-            guard let url = URL(string: "https://demo.sportz.io/nzin01312019187360.json") else {
+            guard let url = URL(string: "https://demo.sportz.io/sapk01222019186652.json") else {
                 throw MyError.invalidInput(message: "URL is Invalid")
             }
             
-            let (data, response) = try await URLSession.shared.data(from: url)
+            let (data, _) = try await URLSession.shared.data(from: url)
             let STRVO_MTCH = try JSONDecoder().decode(MatchDatum.self, from: data)
             
             return STRVO_MTCH
