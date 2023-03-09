@@ -24,6 +24,7 @@
 		BDA2B3F929B9E34100F53381 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B3F829B9E34100F53381 /* AuthModel.swift */; };
 		BDA2B3FC29B9E46A00F53381 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B3FB29B9E46A00F53381 /* LoginViewModel.swift */; };
 		BDA2B40229B9EDB300F53381 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA2B40129B9EDB300F53381 /* Launch Screen.storyboard */; };
+		BDA2B40529B9F17D00F53381 /* AppLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B40429B9F17D00F53381 /* AppLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		BDA2B3F829B9E34100F53381 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		BDA2B3FB29B9E46A00F53381 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		BDA2B40129B9EDB300F53381 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		BDA2B40429B9F17D00F53381 /* AppLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 		BDA2B3DB29B9DFBF00F53381 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BDA2B40329B9F16F00F53381 /* Loader */,
 				BDA2B3ED29B9E23C00F53381 /* Dashboard */,
 				BDA2B3EA29B9E21100F53381 /* LoginView */,
 				BDA2B3E929B9E20B00F53381 /* Splash */,
@@ -267,6 +270,14 @@
 				BDA2B40129B9EDB300F53381 /* Launch Screen.storyboard */,
 			);
 			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		BDA2B40329B9F16F00F53381 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				BDA2B40429B9F17D00F53381 /* AppLoader.swift */,
+			);
+			path = Loader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +417,7 @@
 				BDA2B3EF29B9E25C00F53381 /* LoginView.swift in Sources */,
 				BDA2B3F229B9E2A500F53381 /* Helper.swift in Sources */,
 				BDA2B3E829B9E0CF00F53381 /* SplashScreen.swift in Sources */,
+				BDA2B40529B9F17D00F53381 /* AppLoader.swift in Sources */,
 				BDA2B3B129B9DEA300F53381 /* StumpHeroApp.swift in Sources */,
 				BDA2B3EC29B9E22500F53381 /* Dashboard.swift in Sources */,
 				BDA2B3DF29B9E00000F53381 /* App Strings.swift in Sources */,
