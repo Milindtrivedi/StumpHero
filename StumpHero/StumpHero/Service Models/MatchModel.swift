@@ -6,213 +6,10 @@
 //
 
 import Foundation
-//
-//// MARK: - MatchDatum
-//struct MatchDatum: Hashable,Codable {
-//    var matchdetail: Matchdetail?
-//    var nuggets: [String]?
-//    var innings: [MatchInning]?
-//    var teams: [String: MatchTeam]?
-//    var notes: [String: [String]]?
-//}
-//
-//// MARK: - MatchInning
-//struct MatchInning: Hashable,Codable {
-//    var number: String?
-//    var battingteam: String?
-//    var total: String?
-//    var wickets: String?
-//    var overs: String?
-//    var runrate: String?
-//    var byes: String?
-//    var legbyes: String?
-//    var wides: String?
-//    var noballs: String?
-//    var penalty: String?
-//    var allottedOvers: String?
-//    var batsmen: [MatchInningBatsman]?
-//    var partnershipCurrent: MatchPartnershipCurrent?
-//    var bowlers: [MatchBowler]?
-//    var fallofWickets: [MatchFallofWicket]?
-//    var powerPlay: MatchPowerPlay?
-//    var target: String?
-//}
-//
-//// MARK: - MatchInningBatsman
-//struct MatchInningBatsman: Hashable,Codable {
-//    var batsman: String?
-//    var runs: String?
-//    var balls: String?
-//    var fours: String?
-//    var sixes: String?
-//    var dots: String?
-//    var strikerate: String?
-//    var dismissal: MatchDismissal?
-//    var howout: String?
-//    var bowler: String?
-//    var fielder: String?
-//    var isonstrike: Bool?
-//}
-//
-//enum MatchDismissal: Hashable,Codable {
-//    case bowled
-//    case caught
-//    case empty
-//    case lbw
-//    case notOut
-//    case stumped
-//}
-//
-//// MARK: - MatchBowler
-//struct MatchBowler: Hashable,Codable {
-//    var bowler: String?
-//    var overs: String?
-//    var maidens: String?
-//    var runs: String?
-//    var wickets: String?
-//    var economyrate: String?
-//    var noballs: String?
-//    var wides: String?
-//    var dots: String?
-//    var isbowlingtandem: Bool?
-//    var isbowlingnow: Bool?
-//    var thisOver: [MatchThisOver]?
-//}
-//
-//// MARK: - MatchThisOver
-//struct MatchThisOver: Hashable,Codable {
-//    var t: MatchT?
-//    var b: String?
-//}
-//
-//enum MatchT: Hashable,Codable {
-//    case empty
-//    case lb
-//    case wd
-//}
-//
-//// MARK: - MatchFallofWicket
-//struct MatchFallofWicket: Hashable,Codable {
-//    var batsman: String?
-//    var score: String?
-//    var overs: String?
-//}
-//
-//// MARK: - MatchPartnershipCurrent
-//struct MatchPartnershipCurrent: Hashable,Codable {
-//    var runs: String?
-//    var balls: String?
-//    var batsmen: [MatchPartnershipCurrentBatsman]?
-//}
-//
-//// MARK: - MatchPartnershipCurrentBatsman
-//struct MatchPartnershipCurrentBatsman: Hashable,Codable {
-//    var batsman: String?
-//    var runs: String?
-//    var balls: String?
-//}
-//
-//// MARK: - MatchPowerPlay
-//struct MatchPowerPlay: Hashable,Codable {
-//    var pp1: String?
-//    var pp2: String?
-//}
-//
-//// MARK: - Matchdetail
-//struct Matchdetail: Hashable,Codable {
-//    var teamHome: String?
-//    var teamAway: String?
-//    var match: Match?
-//    var series: MatchSeries?
-//    var venue: MatchVenue?
-//    var officials: MatchOfficials?
-//    var weather: String?
-//    var tosswonby: String?
-//    var status: String?
-//    var statusID: String?
-//    var playerMatch: String?
-//    var result: String?
-//    var winningteam: String?
-//    var winmargin: String?
-//    var equation: String?
-//}
-//
-//// MARK: - Match
-//struct Match: Hashable,Codable {
-//    var livecoverage: String?
-//    var id: String?
-//    var code: String?
-//    var league: String?
-//    var number: String?
-//    var type: String?
-//    var date: String?
-//    var time: String?
-//    var offset: String?
-//    var daynight: String?
-//}
-//
-//// MARK: - MatchOfficials
-//struct MatchOfficials: Hashable,Codable {
-//    var umpires: String?
-//    var referee: String?
-//}
-//
-//// MARK: - MatchSeries
-//struct MatchSeries: Hashable,Codable {
-//    var id: String?
-//    var name: String?
-//    var status: String?
-//    var tour: String?
-//    var tourName: String?
-//}
-//
-//// MARK: - MatchVenue
-//struct MatchVenue: Hashable,Codable {
-//    var id: String?
-//    var name: String?
-//}
-//
-//// MARK: - MatchTeam
-//struct MatchTeam: Hashable,Codable {
-//    var nameFull: String?
-//    var nameShort: String?
-//    var players: [String: MatchPlayer]?
-//}
-//
-//// MARK: - MatchPlayer
-//struct MatchPlayer: Hashable,Codable {
-//    var position: String?
-//    var nameFull: String?
-//    var iskeeper: Bool?
-//    var batting: MatchBatting?
-//    var bowling: MatchBowling?
-//    var iscaptain: Bool?
-//}
-//
-//// MARK: - MatchBatting
-//struct MatchBatting: Hashable,Codable {
-//    var style: MatchStyle?
-//    var average: String?
-//    var strikerate: String?
-//    var runs: String?
-//}
-//
-//enum MatchStyle: Hashable,Codable {
-//    case lhb
-//    case rhb
-//}
-//
-//// MARK: - MatchBowling
-//struct MatchBowling: Hashable,Codable {
-//    var style: String?
-//    var average: String?
-//    var economyrate: String?
-//    var wickets: String?
-//}
-
 
 // MARK: - MatchDatum
-struct MatchDatum: Codable, Hashable {
+struct MatchDatum: Codable, Hashable, Identifiable {
+    let id = UUID()
     let matchdetail: Matchdetail
     let nuggets: [String]
     let innings: [MatchInning]
@@ -229,7 +26,8 @@ struct MatchDatum: Codable, Hashable {
 }
 
 // MARK: - MatchInning
-struct MatchInning: Codable, Hashable {
+struct MatchInning: Codable, Hashable, Identifiable {
+    let id = UUID()
     let number, battingteam, total, wickets: String
     let overs, runrate, byes, legbyes: String
     let wides, noballs, penalty, allottedOvers: String
@@ -263,7 +61,8 @@ struct MatchInning: Codable, Hashable {
 }
 
 // MARK: - MatchInningBatsman
-struct MatchInningBatsman: Codable, Hashable {
+struct MatchInningBatsman: Codable, Hashable, Identifiable {
+    let id = UUID()
     let batsman, runs, balls, fours: String
     let sixes, dots, strikerate, dismissal: String
     let howout, bowler, fielder: String
@@ -286,7 +85,8 @@ struct MatchInningBatsman: Codable, Hashable {
 }
 
 // MARK: - MatchBowler
-struct MatchBowler: Codable, Hashable {
+struct MatchBowler: Codable, Hashable, Identifiable {
+    let id = UUID()
     let bowler, overs, maidens, runs: String
     let wickets, economyrate, noballs, wides: String
     let dots: String
@@ -310,7 +110,8 @@ struct MatchBowler: Codable, Hashable {
 }
 
 // MARK: - MatchThisOver
-struct MatchThisOver: Codable, Hashable {
+struct MatchThisOver: Codable, Hashable, Identifiable {
+    let id = UUID()
     let t, b: String
 
     enum CodingKeys: String, CodingKey {
@@ -320,7 +121,8 @@ struct MatchThisOver: Codable, Hashable {
 }
 
 // MARK: - MatchFallofWicket
-struct MatchFallofWicket: Codable, Hashable {
+struct MatchFallofWicket: Codable, Hashable, Identifiable {
+    let id = UUID()
     let batsman, score, overs: String
 
     enum CodingKeys: String, CodingKey {
@@ -331,7 +133,8 @@ struct MatchFallofWicket: Codable, Hashable {
 }
 
 // MARK: - MatchPartnershipCurrent
-struct MatchPartnershipCurrent: Codable, Hashable {
+struct MatchPartnershipCurrent: Codable, Hashable, Identifiable {
+    let id = UUID()
     let runs, balls: String
     let batsmen: [MatchPartnershipCurrentBatsman]
 
@@ -343,7 +146,8 @@ struct MatchPartnershipCurrent: Codable, Hashable {
 }
 
 // MARK: - MatchPartnershipCurrentBatsman
-struct MatchPartnershipCurrentBatsman: Codable, Hashable {
+struct MatchPartnershipCurrentBatsman: Codable, Hashable, Identifiable {
+    let id = UUID()
     let batsman, runs, balls: String
 
     enum CodingKeys: String, CodingKey {
@@ -354,7 +158,8 @@ struct MatchPartnershipCurrentBatsman: Codable, Hashable {
 }
 
 // MARK: - MatchPowerPlay
-struct MatchPowerPlay: Codable, Hashable {
+struct MatchPowerPlay: Codable, Hashable, Identifiable {
+    let id = UUID()
     let pp1, pp2: String
 
     enum CodingKeys: String, CodingKey {
@@ -364,7 +169,8 @@ struct MatchPowerPlay: Codable, Hashable {
 }
 
 // MARK: - Matchdetail
-struct Matchdetail: Codable, Hashable {
+struct Matchdetail: Codable, Hashable,Identifiable {
+    let id = UUID()
     let teamHome, teamAway: String
     let match: Match
     let series: MatchSeries
@@ -394,14 +200,15 @@ struct Matchdetail: Codable, Hashable {
 }
 
 // MARK: - Match
-struct Match: Codable, Hashable {
-    let livecoverage, id, code, league: String
+struct Match: Codable, Hashable, Identifiable {
+    let id = UUID()
+    let livecoverage, iid, code, league: String
     let number, type, date, time: String
     let offset, daynight: String
 
     enum CodingKeys: String, CodingKey {
         case livecoverage = "Livecoverage"
-        case id = "Id"
+        case iid = "Id"
         case code = "Code"
         case league = "League"
         case number = "Number"
@@ -414,8 +221,9 @@ struct Match: Codable, Hashable {
 }
 
 // MARK: - MatchOfficials
-struct MatchOfficials: Codable, Hashable {
+struct MatchOfficials: Codable, Hashable, Identifiable {
     let umpires, referee: String
+    let id = UUID()
 
     enum CodingKeys: String, CodingKey {
         case umpires = "Umpires"
@@ -424,12 +232,13 @@ struct MatchOfficials: Codable, Hashable {
 }
 
 // MARK: - MatchSeries
-struct MatchSeries: Codable, Hashable {
-    let id, name, status, tour: String
+struct MatchSeries: Codable, Hashable, Identifiable {
+    let id = UUID()
+    let IId, name, status, tour: String
     let tourName: String
 
     enum CodingKeys: String, CodingKey {
-        case id = "Id"
+        case IId = "Id"
         case name = "Name"
         case status = "Status"
         case tour = "Tour"
@@ -438,17 +247,19 @@ struct MatchSeries: Codable, Hashable {
 }
 
 // MARK: - MatchVenue
-struct MatchVenue: Codable, Hashable {
-    let id, name: String
+struct MatchVenue: Codable, Hashable, Identifiable {
+    let id = UUID(), name: String
+    let IId = UUID()
 
     enum CodingKeys: String, CodingKey {
-        case id = "Id"
+        case IId = "Id"
         case name = "Name"
     }
 }
 
 // MARK: - MatchTeam
-struct MatchTeam: Codable, Hashable {
+struct MatchTeam: Codable, Hashable, Identifiable {
+    let id = UUID()
     let nameFull, nameShort: String
     let players: [String: MatchPlayer]
 
@@ -460,7 +271,8 @@ struct MatchTeam: Codable, Hashable {
 }
 
 // MARK: - MatchPlayer
-struct MatchPlayer: Codable, Hashable {
+struct MatchPlayer: Codable, Hashable, Identifiable {
+    let id = UUID()
     let position, nameFull: String
     let iskeeper: Bool?
     let batting: MatchBatting
@@ -478,7 +290,8 @@ struct MatchPlayer: Codable, Hashable {
 }
 
 // MARK: - MatchBatting
-struct MatchBatting: Codable, Hashable {
+struct MatchBatting: Codable, Hashable, Identifiable {
+    let id = UUID()
     let style: MatchStyle
     let average, strikerate, runs: String
 
@@ -496,7 +309,8 @@ enum MatchStyle: String, Codable {
 }
 
 // MARK: - MatchBowling
-struct MatchBowling: Codable, Hashable {
+struct MatchBowling: Codable, Hashable, Identifiable {
+    let id = UUID()
     let style, average, economyrate, wickets: String
 
     enum CodingKeys: String, CodingKey {
