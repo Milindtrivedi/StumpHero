@@ -10,21 +10,46 @@ import SwiftUI
 struct Dashboard: View {
     
     @StateObject private var viewModel = DashboardViewModel(getMatchCase: getMatchCaseImpl())
+    @AppStorage("selection") var selection = 0
     
     var body: some View {
         
         VStack {
-            if viewModel.matches.isEmpty {
-                Text("Loading...")
+            
+            HeaderView(backImageName: "bell", rightImageName: "gear", title: "Fixtures")
+            
+            FilterView()
+                .padding(.horizontal)
+            
+            if selection == 0 {
+                Group {
+                    ScrollView {
+                        VStack(spacing: 16.0) {
+                            
+                            ForEach(viewModel.matches, id: \.self) { rows in
+                                MatchView(vm: viewModel, rows: rows)
+                                    .padding()
+                            }
+                            Spacer()
+                            
+                        }
+                        .frame(width: UIScreen.screenWidth)
+                    }
+                }
             } else {
+                Spacer()
                 
-                Text(String(describing: viewModel.matches.count))
+                Text(AppStrings.DashboardNoDataTxt)
                 
+                Spacer()
             }
         }
-        .task {
-            await viewModel.getMatchData()
-        }
+        
+        .background(Color(hex: AppConstants.ViewBackGroundClr))
+        
+        //        .task {
+        //            await viewModel.getMatchData()
+        //        }
         
         .alert(isPresented: $viewModel.showErrorPopup) {
             Alert(title: Text(viewModel.error),
@@ -34,6 +59,18 @@ struct Dashboard: View {
                 viewModel.error = ""
             }
             )
+        }
+        
+        .overlay {
+            if viewModel.isLoading {
+                ZStack {
+                    Color(white: 0, opacity: 0.55)
+                    AppLoader()
+                }.ignoresSafeArea(.all)
+                    .onTapGesture {
+                        viewModel.isLoading = false
+                    }
+            }
         }
         
     }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 final class AppStrings {
-    static let Dashboardtitle = "Matches"
+    static let DashboardLivetxt = "Live"
+    static let DashboardNoDataTxt = "No Data Available at the moment"
     
 }

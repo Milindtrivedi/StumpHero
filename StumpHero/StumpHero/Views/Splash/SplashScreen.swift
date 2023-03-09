@@ -36,7 +36,7 @@ struct SplashScreen: View {
                 withAnimation(Animation.easeInOut(duration: 0.99).repeatForever()) {
                     isAnimating = true
                 }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.8){
                     self.MoveToDashboard = true
                 }
             }//: ON APPEAR
