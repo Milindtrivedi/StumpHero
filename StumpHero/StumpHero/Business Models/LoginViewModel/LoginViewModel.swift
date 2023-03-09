@@ -27,7 +27,7 @@ class LoginViewModel: ObservableObject {
     @Published var showErrorPopup = false
     @Published var error: String = ""
     @Published var loggedIn : Bool = false
-    @Published var loading = false
+    
     
     
     let authModel = AuthModel()

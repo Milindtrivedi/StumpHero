@@ -25,6 +25,9 @@
 		BDA2B3FC29B9E46A00F53381 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B3FB29B9E46A00F53381 /* LoginViewModel.swift */; };
 		BDA2B40229B9EDB300F53381 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA2B40129B9EDB300F53381 /* Launch Screen.storyboard */; };
 		BDA2B40529B9F17D00F53381 /* AppLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B40429B9F17D00F53381 /* AppLoader.swift */; };
+		BDA2B40729B9FC3200F53381 /* MatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B40629B9FC3200F53381 /* MatchModel.swift */; };
+		BDA2B40929B9FC8500F53381 /* WebServiceCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B40829B9FC8500F53381 /* WebServiceCollection.swift */; };
+		BDA2B40C29B9FF0C00F53381 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B40B29B9FF0C00F53381 /* DashboardViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,9 @@
 		BDA2B3FB29B9E46A00F53381 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		BDA2B40129B9EDB300F53381 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BDA2B40429B9F17D00F53381 /* AppLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLoader.swift; sourceTree = "<group>"; };
+		BDA2B40629B9FC3200F53381 /* MatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchModel.swift; sourceTree = "<group>"; };
+		BDA2B40829B9FC8500F53381 /* WebServiceCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceCollection.swift; sourceTree = "<group>"; };
+		BDA2B40B29B9FF0C00F53381 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				BDA2B3F829B9E34100F53381 /* AuthModel.swift */,
+				BDA2B40829B9FC8500F53381 /* WebServiceCollection.swift */,
 			);
 			path = WebServices;
 			sourceTree = "<group>";
@@ -244,6 +251,7 @@
 		BDA2B3FA29B9E45200F53381 /* Business Models */ = {
 			isa = PBXGroup;
 			children = (
+				BDA2B40A29B9FEFF00F53381 /* DashboardViewModel */,
 				BDA2B3FD29B9E4B500F53381 /* LoginViewModel */,
 			);
 			path = "Business Models";
@@ -260,6 +268,7 @@
 		BDA2B3FF29B9E4CB00F53381 /* Service Models */ = {
 			isa = PBXGroup;
 			children = (
+				BDA2B40629B9FC3200F53381 /* MatchModel.swift */,
 			);
 			path = "Service Models";
 			sourceTree = "<group>";
@@ -278,6 +287,14 @@
 				BDA2B40429B9F17D00F53381 /* AppLoader.swift */,
 			);
 			path = Loader;
+			sourceTree = "<group>";
+		};
+		BDA2B40A29B9FEFF00F53381 /* DashboardViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BDA2B40B29B9FF0C00F53381 /* DashboardViewModel.swift */,
+			);
+			path = DashboardViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,13 +430,16 @@
 			files = (
 				BDA2B3F629B9E32300F53381 /* InternetConnectivity.swift in Sources */,
 				BDA2B3F429B9E30200F53381 /* PopupHelper.swift in Sources */,
+				BDA2B40729B9FC3200F53381 /* MatchModel.swift in Sources */,
 				BDA2B3FC29B9E46A00F53381 /* LoginViewModel.swift in Sources */,
 				BDA2B3EF29B9E25C00F53381 /* LoginView.swift in Sources */,
 				BDA2B3F229B9E2A500F53381 /* Helper.swift in Sources */,
+				BDA2B40C29B9FF0C00F53381 /* DashboardViewModel.swift in Sources */,
 				BDA2B3E829B9E0CF00F53381 /* SplashScreen.swift in Sources */,
 				BDA2B40529B9F17D00F53381 /* AppLoader.swift in Sources */,
 				BDA2B3B129B9DEA300F53381 /* StumpHeroApp.swift in Sources */,
 				BDA2B3EC29B9E22500F53381 /* Dashboard.swift in Sources */,
+				BDA2B40929B9FC8500F53381 /* WebServiceCollection.swift in Sources */,
 				BDA2B3DF29B9E00000F53381 /* App Strings.swift in Sources */,
 				BDA2B3E429B9E04600F53381 /* AppConstants.swift in Sources */,
 				BDA2B3F929B9E34100F53381 /* AuthModel.swift in Sources */,

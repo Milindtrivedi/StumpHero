@@ -8,8 +8,34 @@
 import SwiftUI
 
 struct Dashboard: View {
+    
+    @StateObject private var viewModel = DashboardViewModel(getMatchCase: getMatchCaseImpl())
+    
     var body: some View {
-        Text("Dashbaord")
+        
+        VStack {
+            if viewModel.matches.isEmpty {
+                Text("Loading...")
+            } else {
+                
+                Text(String(describing: viewModel.matches.count))
+                
+            }
+        }
+        .task {
+            await viewModel.getMatchData()
+        }
+        
+        .alert(isPresented: $viewModel.showErrorPopup) {
+            Alert(title: Text(viewModel.error),
+                  message: nil,
+                  dismissButton: .default(Text("OK")){
+                viewModel.showErrorPopup = false
+                viewModel.error = ""
+            }
+            )
+        }
+        
     }
 }
 

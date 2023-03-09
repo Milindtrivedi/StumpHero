@@ -33,5 +33,6 @@ class AuthModel {
 enum MyError: Error {
     case invalidInput(message: String)
     case networkError(message: String)
+    case parsingError(message: String)
 }
 
