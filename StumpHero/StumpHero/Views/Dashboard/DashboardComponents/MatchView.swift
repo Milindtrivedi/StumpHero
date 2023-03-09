@@ -56,12 +56,12 @@ struct MatchView: View {
                         
                     } label: {
                         VStack(alignment: .center) {
-                            Text(vm.getTeamName(id: rows.matchdetail.teamHome)?.nameShort ?? "err")
+                            Text(vm.getTeamName(data: self.rows, id: rows.matchdetail.teamHome)?.nameShort ?? "err")
                                 .foregroundColor(.white)
                                 .font(.largeTitle)
                                 .bold()
                             
-                            Text(vm.getTeamName(id: rows.matchdetail.teamHome)?.nameFull ?? "err")
+                            Text(vm.getTeamName(data: self.rows,id: rows.matchdetail.teamHome)?.nameFull ?? "err")
                                 .foregroundColor(.white)
                                 .font(.callout)
                                 .bold()
@@ -78,12 +78,12 @@ struct MatchView: View {
                     } label: {
                         
                         VStack(alignment: .center){
-                            Text(vm.getTeamName(id: rows.matchdetail.teamAway)?.nameShort ?? "err")
+                            Text(vm.getTeamName(data: self.rows,id: rows.matchdetail.teamAway)?.nameShort ?? "err")
                                 .foregroundColor(.white)
                                 .font(.largeTitle)
                                 .bold()
                             
-                            Text(vm.getTeamName(id: rows.matchdetail.teamAway)?.nameFull ?? "err")
+                            Text(vm.getTeamName(data: self.rows,id: rows.matchdetail.teamAway)?.nameFull ?? "err")
                                 .foregroundColor(.white)
                                 .font(.callout)
                                 .bold()
@@ -101,13 +101,15 @@ struct MatchView: View {
                     Text("Venue: " + rows.matchdetail.venue.name)
                     
                 }
+                .foregroundColor(Color(hex:AppConstants.TextYellowClr))
                 .padding()
             }
         }
-        .frame(width: UIScreen.screenWidth)
+        .frame(width: UIScreen.screenWidth - 20)
         .background(
-            Color(hex: AppConstants.TextlightGrayClr)
+            Color(hex: "2E3944")
         )
+        .cornerRadius(12.0)
         .onAppear{
             withAnimation(Animation.easeInOut(duration: 0.99).repeatForever()) {
                 isAnimating = true

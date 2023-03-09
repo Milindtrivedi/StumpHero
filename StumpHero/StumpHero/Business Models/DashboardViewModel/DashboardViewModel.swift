@@ -45,15 +45,12 @@ class DashboardViewModel: ObservableObject {
         }
     }
     
-    func getTeamName(id: String) -> MatchTeam? {
-        
-        for items in self.matches {
-            guard let name = items.teams.first(where: {$0.key == id} ) else {
+    func getTeamName(data:MatchDatum, id: String) -> MatchTeam? {
+
+            guard let name = data.teams.first(where: {$0.key == id} ) else {
                 return nil
             }
             return name.value
-        }
-        return nil
     }
     
     func getDayOfWeek(_ dateString: String) -> String? {
