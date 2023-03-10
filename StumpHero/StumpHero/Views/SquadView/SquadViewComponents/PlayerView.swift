@@ -51,8 +51,14 @@ struct PlayerView: View {
         
         
         if Filterselection == 0 {
-            players = playerList.filter {
-                searchText.isEmpty || $0.nameFull.localizedStandardContains(searchText)
+            if searchText.isEmpty {
+                players = playerList
+            } else {
+                players = playerList.filter {
+                    $0.nameFull.localizedCaseInsensitiveContains(searchText.trimmingCharacters(in: .whitespaces)) ||
+                    $0.nameShort.localizedCaseInsensitiveContains(searchText.trimmingCharacters(in: .whitespaces)) ||
+                    $0.players.values.contains(where: { $0.nameFull.localizedCaseInsensitiveContains(searchText.trimmingCharacters(in: .whitespaces)) })
+                }
             }
         }
         
@@ -100,12 +106,25 @@ struct PlayerView: View {
                     Section(list.nameFull) {
                         if list.nameFull == vm.getTeamName(data: rows, id: rows.matchdetail.teamHome)?.nameFull {
                             ForEach(playersArrHome) { player in
-                                Text(player.nameFull)
+                                if searchText.isEmpty {
+                                    Text(player.nameFull)
+                                } else {
+                                    if player.nameFull.localizedCaseInsensitiveContains(searchText.trimmingCharacters(in: .whitespaces)){
+                                        Text(player.nameFull)
+                                    }
+                                }
                             }
                             .listRowBackground(Color(hex: AppConstants.ViewBackGroundClr))
                         } else {
+                            
                             ForEach(playersArrAway) { player in
-                                Text(player.nameFull)
+                                if searchText.isEmpty {
+                                    Text(player.nameFull)
+                                } else {
+                                    if player.nameFull.localizedCaseInsensitiveContains(searchText.trimmingCharacters(in: .whitespaces)){
+                                        Text(player.nameFull)
+                                    }
+                                }
                             }
                             .listRowBackground(Color(hex: AppConstants.ViewBackGroundClr))
                         }
