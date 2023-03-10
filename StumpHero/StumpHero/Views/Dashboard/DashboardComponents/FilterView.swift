@@ -14,9 +14,9 @@ struct FilterView: View {
     var body: some View {
         VStack {
             Picker("", selection: $selection) {
-                Text("Live").tag(0)
-                Text("Upcoming").tag(1)
-                Text("News").tag(2)
+                Text(AppStrings.filterLiveTitle).tag(0)
+                Text(AppStrings.filterUpcomingTitle).tag(1)
+                Text(AppStrings.filterNewsTitle).tag(2)
                     .foregroundColor(.cyan)
             }
             .pickerStyle(.segmented)

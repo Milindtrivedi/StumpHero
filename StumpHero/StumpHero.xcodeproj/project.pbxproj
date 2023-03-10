@@ -28,7 +28,6 @@
 		BDA2B40729B9FC3200F53381 /* MatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B40629B9FC3200F53381 /* MatchModel.swift */; };
 		BDA2B40929B9FC8500F53381 /* WebServiceCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B40829B9FC8500F53381 /* WebServiceCollection.swift */; };
 		BDA2B40C29B9FF0C00F53381 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B40B29B9FF0C00F53381 /* DashboardViewModel.swift */; };
-		BDA4D7FF29BAF6BF00E3C9CC /* SquadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA4D7FE29BAF6BF00E3C9CC /* SquadView.swift */; };
 		BDA4D80229BAF70D00E3C9CC /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA4D80129BAF70D00E3C9CC /* SearchView.swift */; };
 		BDA4D80429BAF73600E3C9CC /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA4D80329BAF73600E3C9CC /* PlayerView.swift */; };
 		BDA4D80629BB046700E3C9CC /* CustomPlayerFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA4D80529BB046700E3C9CC /* CustomPlayerFilter.swift */; };
@@ -84,7 +83,6 @@
 		BDA2B40629B9FC3200F53381 /* MatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchModel.swift; sourceTree = "<group>"; };
 		BDA2B40829B9FC8500F53381 /* WebServiceCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceCollection.swift; sourceTree = "<group>"; };
 		BDA2B40B29B9FF0C00F53381 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
-		BDA4D7FE29BAF6BF00E3C9CC /* SquadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquadView.swift; sourceTree = "<group>"; };
 		BDA4D80129BAF70D00E3C9CC /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		BDA4D80329BAF73600E3C9CC /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		BDA4D80529BB046700E3C9CC /* CustomPlayerFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPlayerFilter.swift; sourceTree = "<group>"; };
@@ -196,7 +194,7 @@
 			children = (
 				BDB7C6DF29BB56010046B64C /* PopUps */,
 				BDB7C6D929BB558F0046B64C /* Profile */,
-				BDA4D7FD29BAF6AF00E3C9CC /* SquadView */,
+				BDA4D7FD29BAF6AF00E3C9CC /* PlayerView */,
 				BDA2B40329B9F16F00F53381 /* Loader */,
 				BDA2B3ED29B9E23C00F53381 /* Dashboard */,
 				BDA2B3EA29B9E21100F53381 /* LoginView */,
@@ -327,23 +325,22 @@
 			path = DashboardViewModel;
 			sourceTree = "<group>";
 		};
-		BDA4D7FD29BAF6AF00E3C9CC /* SquadView */ = {
+		BDA4D7FD29BAF6AF00E3C9CC /* PlayerView */ = {
 			isa = PBXGroup;
 			children = (
-				BDA4D7FE29BAF6BF00E3C9CC /* SquadView.swift */,
-				BDA4D80029BAF6F200E3C9CC /* SquadViewComponents */,
+				BDA4D80329BAF73600E3C9CC /* PlayerView.swift */,
+				BDA4D80029BAF6F200E3C9CC /* PlayerViewComponents */,
 			);
-			path = SquadView;
+			path = PlayerView;
 			sourceTree = "<group>";
 		};
-		BDA4D80029BAF6F200E3C9CC /* SquadViewComponents */ = {
+		BDA4D80029BAF6F200E3C9CC /* PlayerViewComponents */ = {
 			isa = PBXGroup;
 			children = (
 				BDA4D80129BAF70D00E3C9CC /* SearchView.swift */,
-				BDA4D80329BAF73600E3C9CC /* PlayerView.swift */,
 				BDA4D80529BB046700E3C9CC /* CustomPlayerFilter.swift */,
 			);
-			path = SquadViewComponents;
+			path = PlayerViewComponents;
 			sourceTree = "<group>";
 		};
 		BDB7C6D929BB558F0046B64C /* Profile */ = {
@@ -531,7 +528,6 @@
 				BDA2B3EF29B9E25C00F53381 /* LoginView.swift in Sources */,
 				BDB7C6DE29BB55E50046B64C /* ProfileHeaderView.swift in Sources */,
 				BDA2B3F229B9E2A500F53381 /* Helper.swift in Sources */,
-				BDA4D7FF29BAF6BF00E3C9CC /* SquadView.swift in Sources */,
 				BDA4D80629BB046700E3C9CC /* CustomPlayerFilter.swift in Sources */,
 				BDA4D80429BAF73600E3C9CC /* PlayerView.swift in Sources */,
 				BDA2B40C29B9FF0C00F53381 /* DashboardViewModel.swift in Sources */,

@@ -16,7 +16,7 @@ struct CustomPlayerFilter: View {
     var body: some View {
         VStack {
             Picker("", selection: $Filterselection) {
-                Text("All").tag(0)
+                Text(AppStrings.CustomPlayerFilterButtonAllTitle).tag(0)
                 Text(vm.getTeamName(data: rows,id: rows.matchdetail.teamHome)?.nameFull ?? "err").tag(1)
                 Text(vm.getTeamName(data: rows,id: rows.matchdetail.teamAway)?.nameFull ?? "err").tag(2)
                     .foregroundColor(.cyan)

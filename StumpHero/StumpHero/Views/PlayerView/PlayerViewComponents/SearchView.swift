@@ -14,13 +14,13 @@ struct SearchView: View {
     var body: some View {
                 ZStack {
                     HStack {
-                    TextField("Search", text: $text)
+                    TextField(AppStrings.SearchPlaceHolder, text: $text)
                         .padding(.horizontal, 25)
                         .frame(height: 50.0)
                         .toolbar {
                             ToolbarItemGroup(placement: .keyboard) {
                                 Spacer()
-                                Button("Done") {
+                                Button(AppStrings.ToolBarButtonTitle) {
                                     if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
                                         let keyWindow = windowScene.windows.filter { $0.isKeyWindow }.first
                                         keyWindow?.endEditing(true)

@@ -16,13 +16,13 @@ struct LogoutPopUp: View {
         VStack(spacing: 12) {
             
             Text(AppStrings.LogoutTitle)
-                .foregroundColor(.black)
+                .foregroundColor(.white)
                 .font(.system(size: 24))
                 .bold()
                 .padding(.top, 12)
             
             Text(AppStrings.LogoutSubTitle)
-                .foregroundColor(.black)
+                .foregroundColor(.white)
                 .font(.system(size: 16))
                 .opacity(0.6)
                 .multilineTextAlignment(.center)
@@ -41,7 +41,7 @@ struct LogoutPopUp: View {
                         .padding(.vertical, 18)
                         .padding(.horizontal, 24)
                         .foregroundColor(.white)
-                        .background(Color(hex: "4399E6"))
+                        .background(Color(hex: AppConstants.LogoutPopUpBtnClr))
                         .cornerRadius(7)
                 }.buttonStyle(.plain)
                 
@@ -56,7 +56,7 @@ struct LogoutPopUp: View {
                         .padding(.vertical, 18)
                         .padding(.horizontal, 24)
                         .foregroundColor(.white)
-                        .background(Color(hex: "4399E6"))
+                        .background(Color(hex: AppConstants.LogoutPopUpBtnClr))
                         .cornerRadius(7)
                 }.buttonStyle(.plain)
                 
@@ -64,7 +64,8 @@ struct LogoutPopUp: View {
             
         }
         .padding(EdgeInsets(top: 37, leading: 24, bottom: 40, trailing: 24))
-        .background(Color.white.cornerRadius(20))
+        .background(Color(hex: AppConstants.PopUpBgClr
+                         ).cornerRadius(20))
         .shadowedStyle()
         .padding(.horizontal, 40)
     }

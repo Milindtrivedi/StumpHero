@@ -13,7 +13,7 @@ struct LoginView: View {
     
     @ObservedObject var viewModel = LoginViewModel()
     @AppStorage("isOnboarding") var isOnboarding : Bool = true
-    private var borderColour = Color(hex: "E4E5E5")
+    private var borderColour = Color(hex: AppConstants.LoginBorderClr)
     @State private var isSecured: Bool = true
     
     
@@ -25,7 +25,7 @@ struct LoginView: View {
                     VStack(alignment: .center, spacing: 16.0) {
                         TextField("", text: $viewModel.username)
                             .placeholder(when: viewModel.username.isEmpty) {
-                                Text("Username").foregroundColor(Color(hex: "AAAAAA"))
+                                Text(AppStrings.Username).foregroundColor(Color(hex: AppConstants.LoginPlaceHolderClr))
                                     .font(.system(size: 18, weight: .bold, design: .default))
                                 
                             }
@@ -38,7 +38,7 @@ struct LoginView: View {
                             .toolbar {
                                 ToolbarItemGroup(placement: .keyboard) {
                                     Spacer()
-                                    Button("Done") {
+                                    Button(AppStrings.ToolBarButtonTitle) {
                                         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
                                             let keyWindow = windowScene.windows.filter { $0.isKeyWindow }.first
                                             keyWindow?.endEditing(true)
@@ -52,7 +52,7 @@ struct LoginView: View {
                                 if isSecured {
                                     SecureField("", text: $viewModel.password)
                                         .placeholder(when: viewModel.password.isEmpty) {
-                                            Text("Password").foregroundColor(Color(hex: "AAAAAA"))
+                                            Text(AppStrings.Password).foregroundColor(Color(hex: AppConstants.LoginPlaceHolderClr))
                                                 .font(.system(size: 18, weight: .bold, design: .default))
                                         }
                                     
@@ -65,7 +65,7 @@ struct LoginView: View {
                                 } else {
                                     TextField("", text: $viewModel.password)
                                         .placeholder(when: viewModel.password.isEmpty) {
-                                            Text("Password").foregroundColor(Color(hex: "AAAAAA"))
+                                            Text(AppStrings.Password).foregroundColor(Color(hex: AppConstants.LoginPlaceHolderClr))
                                                 .font(.system(size: 18, weight: .bold, design: .default))
                                         }
                                     
@@ -97,7 +97,7 @@ struct LoginView: View {
                                 .frame(maxWidth: .infinity)
                                 .background(
                                     RoundedRectangle(cornerRadius: 7)
-                                        .fill(Color(hex: "4399E6"))
+                                        .fill(Color(hex: AppConstants.LogoutPopUpBtnClr))
                                     //.shadow(color: .white, radius: 2, x: 0, y: 2)
                                 )
                         }
@@ -108,7 +108,7 @@ struct LoginView: View {
                         .position(x: geo.size.width / 2, y: geo.size.height / 2)
                     
                 }
-                .navigationBarTitle("Sign in")
+                .navigationBarTitle(AppStrings.loginTitle)
                 .navigationBarHidden(false)
                 
                 .background(
@@ -120,7 +120,7 @@ struct LoginView: View {
         .alert(isPresented: $viewModel.showErrorPopup) {
             Alert(title: Text(viewModel.error),
                   message: nil,
-                  dismissButton: .default(Text("OK")){
+                  dismissButton: .default(Text(AppStrings.ok)){
                 viewModel.showErrorPopup = false
                 viewModel.error = ""
             }

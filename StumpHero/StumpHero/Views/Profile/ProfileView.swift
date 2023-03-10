@@ -30,14 +30,14 @@ struct ProfileView: View {
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Image(systemName: "xmark")
-                            .foregroundColor(.black)
+                            .foregroundColor(Color.white)
                     }
                     
                     .frame(height: 50.0)
                 }
                 .padding(.trailing, 16)
                 
-                ProfileHeaderView(imageName: "person.circle.fill", personName: "Milind Trivedi")
+                ProfileHeaderView(imageName: "person.circle.fill", personName: AppStrings.UserName)
                     .onTapGesture {
                         isShowProfileInfo = true
                     }
@@ -53,11 +53,11 @@ struct ProfileView: View {
                         } label: {
                             HStack(spacing: 16.0) {
                                 Image(systemName: "person.badge.key")
-                                    .foregroundColor(.black)
+                                    .foregroundColor(.white)
                                     .frame(width: 12.0, height: 12.0)
-                                Text("Permissions")
+                                Text(AppStrings.PermissionTitleTxt)
                                     .font(.system(size: 20, weight: .light))
-                                    .foregroundColor(.black)
+                                    .foregroundColor(.white)
                             }
                         }
                         .padding(.leading,16)
@@ -65,6 +65,9 @@ struct ProfileView: View {
                         Spacer()
                     }
                     Divider()
+                        .overlay {
+                            Color.white
+                        }
                 }
                 Group {
                     HStack {
@@ -74,10 +77,10 @@ struct ProfileView: View {
                             HStack(spacing: 16.0) {
                                 Image(systemName: "person.2")
                                     .frame(width: 12.0, height: 12.0)
-                                    .foregroundColor(.black)
-                                Text("Users")
+                                    .foregroundColor(.white)
+                                Text(AppStrings.UsersTitleTxt)
                                     .font(.system(size: 20, weight: .light))
-                                    .foregroundColor(.black)
+                                    .foregroundColor(.white)
                             }
                         }
                         .padding(.leading,16)
@@ -85,6 +88,9 @@ struct ProfileView: View {
                         Spacer()
                     }
                     Divider()
+                        .overlay {
+                            Color.white
+                        }
                     
                 
                 
@@ -94,13 +100,13 @@ struct ProfileView: View {
                     Button {
                         popups.showingMiddle = true
                     } label: {
-                        Text("Sign Out")
+                        Text(AppStrings.SignOutTitleTxt)
                             .font(.system(size: 16.0, weight: .medium))
                             .foregroundColor(.white)
                             .padding(.horizontal, 16)
                             .padding(.vertical, 8)
                     }
-                    .background(Color.black)
+                    .background(Color(hex: AppConstants.CapsuleBackGroundClr))
                     .clipShape(Capsule())
                     
                     Spacer()
@@ -113,7 +119,7 @@ struct ProfileView: View {
                 
             }
             .background(
-                Color.init(hex: AppConstants.ProfileViewBgClr)
+                Color.init(hex: AppConstants.ViewBackGroundClr)
             )
         }
         .popup(isPresented: $popups.showingMiddle, type: .`default`, closeOnTap: false, backgroundColor: .black.opacity(0.4)) {

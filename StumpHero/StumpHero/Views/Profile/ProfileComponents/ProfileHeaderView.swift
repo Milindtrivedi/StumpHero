@@ -18,12 +18,12 @@ struct ProfileHeaderView: View {
                 Image(systemName: imageName)
                     .resizable()
                     .frame(width: 100,height: 100)
-                    .foregroundColor(.black)
+                    .foregroundColor(.white)
                 
                 Text(personName)
                     .font(.system(size: 20.0))
                     .bold()
-                    .foregroundColor(.black)
+                    .foregroundColor(.white)
             }
             .padding(.leading, 16)
         }

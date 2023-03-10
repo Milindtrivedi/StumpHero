@@ -82,6 +82,17 @@ struct PlayerView: View {
             guard let HomeTeamName = playerList.first?.nameFull else {
                 return playerList
             }
+            
+            if searchText.isEmpty {
+                players = playerList
+            } else {
+                players = playerList.filter {
+                    $0.nameFull.localizedCaseInsensitiveContains(searchText.trimmingCharacters(in: .whitespaces)) ||
+                    $0.nameShort.localizedCaseInsensitiveContains(searchText.trimmingCharacters(in: .whitespaces)) ||
+                    $0.players.values.contains(where: { $0.nameFull.localizedCaseInsensitiveContains(searchText.trimmingCharacters(in: .whitespaces)) })
+                }
+            }
+            
             players = players.filter { $0.nameFull == HomeTeamName}
             
         }
@@ -91,6 +102,19 @@ struct PlayerView: View {
             guard let AwayTeamName = playerList.last?.nameFull else {
                 return playerList
             }
+            
+            
+            if searchText.isEmpty {
+                players = playerList
+            } else {
+                players = playerList.filter {
+                    $0.nameFull.localizedCaseInsensitiveContains(searchText.trimmingCharacters(in: .whitespaces)) ||
+                    $0.nameShort.localizedCaseInsensitiveContains(searchText.trimmingCharacters(in: .whitespaces)) ||
+                    $0.players.values.contains(where: { $0.nameFull.localizedCaseInsensitiveContains(searchText.trimmingCharacters(in: .whitespaces)) })
+                }
+            }
+            
+            
             players = players.filter { $0.nameFull == AwayTeamName}
             
             

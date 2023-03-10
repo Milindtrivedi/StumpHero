@@ -18,7 +18,7 @@ struct Dashboard: View {
         
         VStack {
             
-            HeaderView(backImageName: "bell", rightImageName: "gear", title: "Fixtures", isHideRightImg: false)
+            HeaderView(backImageName: "bell", rightImageName: "gear", title: AppStrings.DashboardHeaderTitle, isHideRightImg: false)
             
             FilterView()
                 .padding(.horizontal)
@@ -66,7 +66,7 @@ struct Dashboard: View {
         .alert(isPresented: $viewModel.showErrorPopup) {
             Alert(title: Text(viewModel.error),
                   message: nil,
-                  dismissButton: .default(Text("OK")){
+                  dismissButton: .default(Text(AppStrings.ok)){
                 viewModel.showErrorPopup = false
                 viewModel.error = ""
             }

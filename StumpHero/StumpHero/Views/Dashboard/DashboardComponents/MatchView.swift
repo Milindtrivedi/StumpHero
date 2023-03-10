@@ -72,7 +72,7 @@ struct MatchView: View {
                     }.frame(width: UIScreen.screenWidth / 3)
                         .padding()
                     
-                    Text("V/S")
+                    Text(AppStrings.versustxt)
                         .foregroundColor(.white)
                     
                     
@@ -107,7 +107,7 @@ struct MatchView: View {
                     }
                     
                     HStack(alignment: .center){
-                        Text("Venue: " + rows.matchdetail.venue.name)
+                        Text(AppStrings.venue + rows.matchdetail.venue.name)
                         vm.getSystemImage(for: rows.matchdetail.weather)
                             .foregroundColor(.white)
                     }
@@ -118,7 +118,7 @@ struct MatchView: View {
         }
         .frame(width: UIScreen.screenWidth - 20)
         .background(
-            Color(hex: "2E3944")
+            Color(hex: AppConstants.MatchViewBgClr)
         )
         .cornerRadius(12.0)
         .onAppear{
