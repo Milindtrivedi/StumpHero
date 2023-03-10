@@ -11,7 +11,7 @@ import SwiftUI
 class DashboardViewModel: ObservableObject {
     
     private let getMatchCase: getMatchCase
-    @Published var matches: [MatchDatum] = [load("60.json")]
+    @Published var matches: [MatchDatum] = [load("52.json")]
     @Published var showErrorPopup = false
     @Published var error: String = ""
     @Published var isLoading: Bool = false

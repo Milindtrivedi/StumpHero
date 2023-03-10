@@ -12,6 +12,8 @@ struct MatchView: View {
     var vm : DashboardViewModel
     var rows : MatchDatum
     @State private var isAnimating: Bool = false
+    @State private var ShowPlayerScreen = false
+    @AppStorage("Filterselection") var Filterselection = 0
     
     var body: some View {
         ZStack {
@@ -24,7 +26,7 @@ struct MatchView: View {
                             Spacer()
                             
                             Button {
-                                print("clicked")
+                                
                             } label: {
                                 HStack(spacing: 4.0){
                                     Rectangle()
@@ -53,7 +55,8 @@ struct MatchView: View {
                 
                 HStack {
                     Button {
-                        
+                        Filterselection = 1
+                        ShowPlayerScreen = true
                     } label: {
                         VStack(alignment: .center) {
                             Text(vm.getTeamName(data: self.rows, id: rows.matchdetail.teamHome)?.nameShort ?? "err")
@@ -74,7 +77,8 @@ struct MatchView: View {
                     
                     
                     Button {
-                        
+                        Filterselection = 2
+                        ShowPlayerScreen = true
                     } label: {
                         
                         VStack(alignment: .center){
@@ -121,6 +125,12 @@ struct MatchView: View {
             withAnimation(Animation.easeInOut(duration: 0.99).repeatForever()) {
                 isAnimating = true
             }
+        }
+        
+        .navigationDestination(isPresented: $ShowPlayerScreen) {
+            PlayerView(vm: vm, rows: rows)
+                .navigationBarBackButtonHidden()
+                .navigationBarHidden(true)
         }
     }
 }

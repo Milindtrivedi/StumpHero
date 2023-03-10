@@ -12,7 +12,7 @@ struct Dashboard: View {
     @StateObject private var viewModel = DashboardViewModel(getMatchCase: getMatchCaseImpl())
     @AppStorage("selection") var selection = 0
     @State var ShowPlayerScreen = false
-    
+    @AppStorage("Filterselection") var Filterselection = 0
     
     var body: some View {
         
@@ -32,6 +32,7 @@ struct Dashboard: View {
                                 MatchView(vm: viewModel, rows: rows)
                                     .padding()
                                     .onTapGesture {
+                                        Filterselection = 0
                                         ShowPlayerScreen = true
                                     }
                                     .navigationDestination(isPresented: $ShowPlayerScreen) {

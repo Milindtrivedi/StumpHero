@@ -38,10 +38,25 @@ struct PlayerView: View {
             playersArrHome.append(playeritemsHome.value)
         }
         
+        
         for playeritemsaway in AwaySquad.players {
             playersArrAway.append(playeritemsaway.value)
         }
         
+        self.playersArrHome = playersArrHome.sorted {
+            guard let pos1 = Int($0.position), let pos2 = Int($1.position) else {
+                return false // positions are not valid numbers, so don't swap them
+            }
+            return pos1 < pos2 // sort by ascending position number
+        }
+        
+        
+        self.playersArrAway = playersArrAway.sorted {
+            guard let pos1 = Int($0.position), let pos2 = Int($1.position) else {
+                return false // positions are not valid numbers, so don't swap them
+            }
+            return pos1 < pos2 // sort by ascending position number
+        }
     }
     
     
@@ -90,7 +105,7 @@ struct PlayerView: View {
         
         VStack(spacing: 16.0) {
             
-            HeaderView(backImageName: "arrow.left", rightImageName: "gear", title: "Squad Information", isHideRightImg: true)
+            HeaderView(backImageName: "arrow.left", rightImageName: "gear", title: AppStrings.SquadScreentitle, isHideRightImg: true)
             
             SearchView(text: $searchText)
             
@@ -105,24 +120,75 @@ struct PlayerView: View {
                     
                     Section(list.nameFull) {
                         if list.nameFull == vm.getTeamName(data: rows, id: rows.matchdetail.teamHome)?.nameFull {
+                            
                             ForEach(playersArrHome) { player in
                                 if searchText.isEmpty {
-                                    Text(player.nameFull)
+                                    
+                                    HStack(spacing: 8.0){
+                                        Text(player.position)
+                                        Text(player.nameFull)
+                                        
+                                        Spacer()
+                                        
+                                        Text(player.playerInfo)
+                                        
+                                    }.padding()
+                                        .onTapGesture {
+                                            // Do something when the user taps on a player
+                                            print("User tapped on player: \(player.nameFull)")
+                                        }
                                 } else {
                                     if player.nameFull.localizedCaseInsensitiveContains(searchText.trimmingCharacters(in: .whitespaces)){
-                                        Text(player.nameFull)
+                                        HStack(spacing: 8.0){
+                                            Text(player.position)
+                                            Text(player.nameFull)
+                                            
+                                            Spacer()
+                                            
+                                            Text(player.playerInfo)
+                                            
+                                        }.padding()
+                                            .onTapGesture {
+                                                // Do something when the user taps on a player
+                                                print("User tapped on player: \(player.nameFull)")
+                                            }
                                     }
                                 }
                             }
                             .listRowBackground(Color(hex: AppConstants.ViewBackGroundClr))
+                            
                         } else {
                             
                             ForEach(playersArrAway) { player in
                                 if searchText.isEmpty {
-                                    Text(player.nameFull)
+                                    HStack(spacing: 8.0){
+                                        Text(player.position)
+                                        Text(player.nameFull)
+                                        
+                                        Spacer()
+                                        
+                                        Text(player.playerInfo)
+                                        
+                                    }.padding()
+                                        .onTapGesture {
+                                            // Do something when the user taps on a player
+                                            print("User tapped on player: \(player.nameFull)")
+                                        }
                                 } else {
                                     if player.nameFull.localizedCaseInsensitiveContains(searchText.trimmingCharacters(in: .whitespaces)){
-                                        Text(player.nameFull)
+                                        HStack(spacing: 8.0){
+                                            Text(player.position)
+                                            Text(player.nameFull)
+                                            
+                                            Spacer()
+                                            
+                                            Text(player.playerInfo)
+                                            
+                                        }.padding()
+                                            .onTapGesture {
+                                                // Do something when the user taps on a player
+                                                print("User tapped on player: \(player.nameFull)")
+                                            }
                                     }
                                 }
                             }

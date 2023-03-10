@@ -287,6 +287,17 @@ struct MatchPlayer: Codable, Hashable, Identifiable {
         case bowling = "Bowling"
         case iscaptain = "Iscaptain"
     }
+    
+    var playerInfo: String {
+            var info = ""
+            if let iskeeper = iskeeper, iskeeper {
+                info += "Wicketkeeper "
+            }
+            if let iscaptain = iscaptain, iscaptain {
+                info += "Captain"
+            }
+            return info.isEmpty ? "Player" : info
+        }
 }
 
 // MARK: - MatchBatting

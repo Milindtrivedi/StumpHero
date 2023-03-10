@@ -14,6 +14,7 @@ struct HeaderView: View {
     var title : String
     var isHideRightImg : Bool
     
+    @State private var isShowProfile = false
     @Environment(\.presentationMode) var presentationMode : Binding<PresentationMode>
     
     var body: some View {
@@ -43,7 +44,9 @@ struct HeaderView: View {
                 
                
                     Button {
-                        
+                        if rightImageName.localizedCaseInsensitiveContains("gear"){
+                            self.isShowProfile = true
+                        }
                     } label: {
                         Image(systemName: rightImageName)
                             .foregroundColor(.white)
@@ -60,6 +63,11 @@ struct HeaderView: View {
             }.padding()
             
         }.background(Color(hex: AppConstants.ViewBackGroundClr))
+        
+            .navigationDestination(isPresented: $isShowProfile) {
+                ProfileView(isShowing: $isShowProfile)
+                    .navigationBarBackButtonHidden()
+            }
     }
 }
 

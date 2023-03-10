@@ -19,4 +19,5 @@ final class AppConstants {
     static let BorderClr = "333238"
     static let gratopclr = "7FEE57"
     static let grabtmclr = "338437"
+    static let ProfileViewBgClr = "D7EFFF"
 }
