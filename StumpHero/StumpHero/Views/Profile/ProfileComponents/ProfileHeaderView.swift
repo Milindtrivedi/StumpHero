@@ -21,11 +21,11 @@ struct ProfileHeaderView: View {
                     .foregroundColor(.white)
                 
                 Text(personName)
-                    .font(.system(size: 20.0))
+                    .font(.title)
                     .bold()
                     .foregroundColor(.white)
             }
-            .padding(.leading, 16)
+            
         }
     }
 }

@@ -17,7 +17,8 @@ struct PlayerView: View {
     var playerList = [MatchTeam]()
     var playersArrHome = [MatchPlayer]()
     var playersArrAway = [MatchPlayer]()
-    
+    @State var ShowPlayerPopUp = false
+    @State private var TappedPlayer = MatchPlayer(position: "1", nameFull: "Milind",iskeeper: false, batting: MatchBatting(style: MatchStyle.lhb, average: "17.60", strikerate: "99.43", runs: "176"), bowling: MatchBowling(style: "RFM", average: "27.21", economyrate: "5.66", wickets: "71"), iscaptain: false)
     
     init(searchText: String = "", Filterselection: Int = 0, vm: DashboardViewModel, rows: MatchDatum) {
         self.vm = vm
@@ -147,22 +148,12 @@ struct PlayerView: View {
                             
                             ForEach(playersArrHome) { player in
                                 if searchText.isEmpty {
-                                    
-                                    HStack(spacing: 8.0){
-                                        Text(player.position)
-                                        Text(player.nameFull)
+                                    Button {
                                         
-                                        Spacer()
-                                        
-                                        Text(player.playerInfo)
-                                        
-                                    }.padding()
-                                        .onTapGesture {
-                                            // Do something when the user taps on a player
-                                            print("User tapped on player: \(player.nameFull)")
-                                        }
-                                } else {
-                                    if player.nameFull.localizedCaseInsensitiveContains(searchText.trimmingCharacters(in: .whitespaces)){
+                                        TappedPlayer = player
+                                        ShowPlayerPopUp = true
+                                       
+                                    } label: {
                                         HStack(spacing: 8.0){
                                             Text(player.position)
                                             Text(player.nameFull)
@@ -172,12 +163,30 @@ struct PlayerView: View {
                                             Text(player.playerInfo)
                                             
                                         }.padding()
-                                            .onTapGesture {
-                                                // Do something when the user taps on a player
-                                                print("User tapped on player: \(player.nameFull)")
-                                            }
+                                            .foregroundColor(.white)
+                                    }
+                                    
+                                } else {
+                                    if player.nameFull.localizedCaseInsensitiveContains(searchText.trimmingCharacters(in: .whitespaces)){
+                                        Button {
+                                            TappedPlayer = player
+                                            ShowPlayerPopUp = true
+                                        } label: {
+                                            HStack(spacing: 8.0){
+                                                Text(player.position)
+                                                Text(player.nameFull)
+                                                
+                                                Spacer()
+                                                
+                                                Text(player.playerInfo)
+                                                
+                                            }.padding()
+                                                .foregroundColor(.white)
+                                        }
+                                        
                                     }
                                 }
+                                
                             }
                             .listRowBackground(Color(hex: AppConstants.ViewBackGroundClr))
                             
@@ -185,21 +194,11 @@ struct PlayerView: View {
                             
                             ForEach(playersArrAway) { player in
                                 if searchText.isEmpty {
-                                    HStack(spacing: 8.0){
-                                        Text(player.position)
-                                        Text(player.nameFull)
-                                        
-                                        Spacer()
-                                        
-                                        Text(player.playerInfo)
-                                        
-                                    }.padding()
-                                        .onTapGesture {
-                                            // Do something when the user taps on a player
-                                            print("User tapped on player: \(player.nameFull)")
-                                        }
-                                } else {
-                                    if player.nameFull.localizedCaseInsensitiveContains(searchText.trimmingCharacters(in: .whitespaces)){
+                                    
+                                    Button {
+                                        TappedPlayer = player
+                                        ShowPlayerPopUp = true
+                                    } label: {
                                         HStack(spacing: 8.0){
                                             Text(player.position)
                                             Text(player.nameFull)
@@ -209,10 +208,32 @@ struct PlayerView: View {
                                             Text(player.playerInfo)
                                             
                                         }.padding()
-                                            .onTapGesture {
-                                                // Do something when the user taps on a player
-                                                print("User tapped on player: \(player.nameFull)")
-                                            }
+                                            .foregroundColor(.white)
+                                    }
+                                    
+                                    
+                                } else {
+                                    if player.nameFull.localizedCaseInsensitiveContains(searchText.trimmingCharacters(in: .whitespaces)){
+                                        
+                                        Button {
+                                            TappedPlayer = player
+                                            ShowPlayerPopUp = true
+                                        } label: {
+                                            HStack(spacing: 8.0){
+                                                Text(player.position)
+                                                Text(player.nameFull)
+                                                
+                                                Spacer()
+                                                
+                                                Text(player.playerInfo)
+                                                
+                                            }.padding()
+                                                .foregroundColor(.white)
+                                        }
+                                        
+                                        
+                                        
+                                        
                                     }
                                 }
                             }
@@ -226,6 +247,18 @@ struct PlayerView: View {
         .background(
             Color(hex: AppConstants.ViewBackGroundClr)
         )
+        
+        .onAppear {
+            TappedPlayer = playersArrHome.first!
+        }
+        
+        
+        .popup(isPresented: $ShowPlayerPopUp, type: .floater(verticalPadding: 0, useSafeAreaInset: true), position: .bottom, closeOnTap: false, closeOnTapOutside: true, backgroundColor: .black.opacity(0.4)) {
+            
+                PlayerDetailsPopup(Player: TappedPlayer)
+            
+            
+        }
     }
     
     

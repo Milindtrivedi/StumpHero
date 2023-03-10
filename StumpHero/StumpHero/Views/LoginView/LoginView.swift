@@ -22,6 +22,14 @@ struct LoginView: View {
         NavigationView {
             GeometryReader { geo in
                 ZStack {
+                    
+                    Image(systemName: "figure.cricket")
+                        .resizable()
+                        .scaledToFit()
+//                        .frame(width: UIScreen.screenWidth * 1.0, height: UIScreen.screenWidth * 1.0)
+                        .opacity(0.1)
+                        .foregroundColor(Color(hex: AppConstants.TextYellowClr))
+                    
                     VStack(alignment: .center, spacing: 16.0) {
                         TextField("", text: $viewModel.username)
                             .placeholder(when: viewModel.username.isEmpty) {
@@ -106,6 +114,9 @@ struct LoginView: View {
                         }
                     }.padding([.horizontal], 24)
                         .position(x: geo.size.width / 2, y: geo.size.height / 2)
+                    
+                    
+                    
                     
                 }
                 .navigationBarTitle(AppStrings.loginTitle)

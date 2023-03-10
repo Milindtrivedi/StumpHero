@@ -22,7 +22,7 @@ class DashboardViewModel: ObservableObject {
     
     func getMatchData() async {
         
-        isLoading = true
+        //isLoading = true
         
         do {
             let dataRecieved = try await getMatchCase.getMatchDetails()

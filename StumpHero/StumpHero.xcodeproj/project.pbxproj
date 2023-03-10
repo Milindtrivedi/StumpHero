@@ -34,6 +34,7 @@
 		BDB7C6DB29BB559B0046B64C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB7C6DA29BB559B0046B64C /* ProfileView.swift */; };
 		BDB7C6DE29BB55E50046B64C /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB7C6DD29BB55E50046B64C /* ProfileHeaderView.swift */; };
 		BDB7C6E229BB56190046B64C /* LogoutPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB7C6E129BB56190046B64C /* LogoutPopUp.swift */; };
+		F374F83929BB9F3C00BB92C4 /* PlayerDetailsPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F374F83829BB9F3C00BB92C4 /* PlayerDetailsPopup.swift */; };
 		F3D6745729BA2C2F00623ED2 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6745629BA2C2F00623ED2 /* HeaderView.swift */; };
 		F3D6745929BA2FFB00623ED2 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6745829BA2FFB00623ED2 /* FilterView.swift */; };
 		F3D6745B29BA36DD00623ED2 /* MatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6745A29BA36DD00623ED2 /* MatchView.swift */; };
@@ -89,6 +90,7 @@
 		BDB7C6DA29BB559B0046B64C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		BDB7C6DD29BB55E50046B64C /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		BDB7C6E129BB56190046B64C /* LogoutPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutPopUp.swift; sourceTree = "<group>"; };
+		F374F83829BB9F3C00BB92C4 /* PlayerDetailsPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsPopup.swift; sourceTree = "<group>"; };
 		F3D6745629BA2C2F00623ED2 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		F3D6745829BA2FFB00623ED2 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		F3D6745A29BA36DD00623ED2 /* MatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchView.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 		BDB7C6DF29BB56010046B64C /* PopUps */ = {
 			isa = PBXGroup;
 			children = (
+				F374F83729BB9F2900BB92C4 /* PlayerDetailsPopup */,
 				BDB7C6E029BB560D0046B64C /* LogoutPopUp */,
 			);
 			path = PopUps;
@@ -374,6 +377,14 @@
 				BDB7C6E129BB56190046B64C /* LogoutPopUp.swift */,
 			);
 			path = LogoutPopUp;
+			sourceTree = "<group>";
+		};
+		F374F83729BB9F2900BB92C4 /* PlayerDetailsPopup */ = {
+			isa = PBXGroup;
+			children = (
+				F374F83829BB9F3C00BB92C4 /* PlayerDetailsPopup.swift */,
+			);
+			path = PlayerDetailsPopup;
 			sourceTree = "<group>";
 		};
 		F3D6745529BA2BBC00623ED2 /* DashboardComponents */ = {
@@ -533,6 +544,7 @@
 				BDA2B40C29B9FF0C00F53381 /* DashboardViewModel.swift in Sources */,
 				BDA2B3E829B9E0CF00F53381 /* SplashScreen.swift in Sources */,
 				BDA2B40529B9F17D00F53381 /* AppLoader.swift in Sources */,
+				F374F83929BB9F3C00BB92C4 /* PlayerDetailsPopup.swift in Sources */,
 				BDA2B3B129B9DEA300F53381 /* StumpHeroApp.swift in Sources */,
 				F3D6745929BA2FFB00623ED2 /* FilterView.swift in Sources */,
 				BDA2B3EC29B9E22500F53381 /* Dashboard.swift in Sources */,

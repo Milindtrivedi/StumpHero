@@ -33,27 +33,31 @@ class LoginViewModel: ObservableObject {
     let authModel = AuthModel()
     
     func login() {
+        
         guard !username.isEmpty && !password.isEmpty else {
             self.showErrorPopup = true
+            self.isLoading = false
             self.error = "Username and password are required"
             return
         }
-        isLoading = true
         
         do {
+            isLoading = true
             try authModel.authenticate(username: username, password: password) { [weak self] (result) in
                 guard let self = self else { return }
-                self.isLoading = false
                 switch result {
                 case .success:
                     self.isOnboarding = false
+                    self.isLoading = false
                     break
                 case .failure(let error):
                     self.showErrorPopup = true
                     self.error = error.self.localizedDescription
+                    self.isLoading = false
                 }
             }
         } catch let error {
+            isLoading = false
             switch error {
             case MyError.invalidInput(let message):
                 self.showErrorPopup = true

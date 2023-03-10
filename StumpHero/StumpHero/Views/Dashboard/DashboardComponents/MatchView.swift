@@ -98,12 +98,15 @@ struct MatchView: View {
                     
                 }
                 
-                VStack {
-                    
-                    Text((vm.getDayOfWeek(rows.matchdetail.match.date) ?? "") + ", " + rows.matchdetail.match.date)
+                VStack(spacing: 16.0) {
+                    HStack {
+                        Text((vm.getDayOfWeek(rows.matchdetail.match.date) ?? "") + ", " + rows.matchdetail.match.date)
+                        Image(systemName: "calendar")
+                    }
                     HStack {
                         Text(vm.convertToAMPM(rows.matchdetail.match.time) ?? "err")
                         Text(rows.matchdetail.match.offset)
+                        Image(systemName: "deskclock.fill")
                     }
                     
                     HStack(alignment: .center){
@@ -112,8 +115,13 @@ struct MatchView: View {
                             .foregroundColor(.white)
                     }
                 }
-                .foregroundColor(Color(hex:AppConstants.TextYellowClr))
                 .padding()
+                .padding()
+                //.foregroundColor(Color(hex:AppConstants.TextYellowClr))
+                .foregroundColor(Color.white)
+                .background(Color(.black).opacity(0.5))
+                .cornerRadius(10)
+                Spacer()
             }
         }
         .frame(width: UIScreen.screenWidth - 20)
