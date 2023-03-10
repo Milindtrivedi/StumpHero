@@ -10,5 +10,6 @@ import SwiftUI
 final class AppStrings {
     static let DashboardLivetxt = "Live"
     static let DashboardNoDataTxt = "No Data Available at the moment"
+    static let PlayerNoDataTxt = "No Player of this name exists in squad"
     
 }

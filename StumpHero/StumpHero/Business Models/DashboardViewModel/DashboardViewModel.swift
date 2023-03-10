@@ -11,7 +11,7 @@ import SwiftUI
 class DashboardViewModel: ObservableObject {
     
     private let getMatchCase: getMatchCase
-    @Published var matches: [MatchDatum] = [load("52.json"),load("60.json")]//= []//
+    @Published var matches: [MatchDatum] = [load("60.json")]
     @Published var showErrorPopup = false
     @Published var error: String = ""
     @Published var isLoading: Bool = false
@@ -76,6 +76,20 @@ class DashboardViewModel: ObservableObject {
             return nil
         }
     }
+    
+
+    func getSystemImage(for condition: String) -> Image {
+        switch condition.lowercased() {
+        case "clear":
+            return Image(systemName: "sun.max")
+        case "sunny":
+            return Image(systemName: "sun.min")
+        default:
+            return Image(systemName: "cloud.sun")
+        }
+    }
+
+
 
 }
 

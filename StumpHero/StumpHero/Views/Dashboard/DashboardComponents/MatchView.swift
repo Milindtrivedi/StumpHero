@@ -97,9 +97,16 @@ struct MatchView: View {
                 VStack {
                     
                     Text((vm.getDayOfWeek(rows.matchdetail.match.date) ?? "") + ", " + rows.matchdetail.match.date)
-                    Text(vm.convertToAMPM(rows.matchdetail.match.time) ?? "")
-                    Text("Venue: " + rows.matchdetail.venue.name)
+                    HStack {
+                        Text(vm.convertToAMPM(rows.matchdetail.match.time) ?? "err")
+                        Text(rows.matchdetail.match.offset)
+                    }
                     
+                    HStack(alignment: .center){
+                        Text("Venue: " + rows.matchdetail.venue.name)
+                        vm.getSystemImage(for: rows.matchdetail.weather)
+                            .foregroundColor(.white)
+                    }
                 }
                 .foregroundColor(Color(hex:AppConstants.TextYellowClr))
                 .padding()

@@ -11,12 +11,14 @@ struct Dashboard: View {
     
     @StateObject private var viewModel = DashboardViewModel(getMatchCase: getMatchCaseImpl())
     @AppStorage("selection") var selection = 0
+    @State var ShowPlayerScreen = false
+    
     
     var body: some View {
         
         VStack {
             
-            HeaderView(backImageName: "bell", rightImageName: "gear", title: "Fixtures")
+            HeaderView(backImageName: "bell", rightImageName: "gear", title: "Fixtures", isHideRightImg: false)
             
             FilterView()
                 .padding(.horizontal)
@@ -29,6 +31,15 @@ struct Dashboard: View {
                             ForEach(viewModel.matches, id: \.self) { rows in
                                 MatchView(vm: viewModel, rows: rows)
                                     .padding()
+                                    .onTapGesture {
+                                        ShowPlayerScreen = true
+                                    }
+                                    .navigationDestination(isPresented: $ShowPlayerScreen) {
+                                        PlayerView(vm: viewModel, rows: rows)
+                                            .navigationBarBackButtonHidden()
+                                            .navigationBarHidden(true)
+                                    }
+                                
                             }
                             Spacer()
                             
@@ -72,7 +83,6 @@ struct Dashboard: View {
                     }
             }
         }
-        
     }
 }
 

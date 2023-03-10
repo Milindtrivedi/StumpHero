@@ -56,6 +56,7 @@ struct SplashScreen: View {
                 }
             }
         }//: NSTACK
+        .navigationViewStyle(.stack)
     }//: BODY
 }
 
