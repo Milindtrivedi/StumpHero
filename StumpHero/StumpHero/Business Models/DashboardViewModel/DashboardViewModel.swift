@@ -11,7 +11,7 @@ import SwiftUI
 class DashboardViewModel: ObservableObject {
     
     private let getMatchCase: getMatchCase
-    @Published var matches: [MatchDatum] = [load("52.json")]// for testing and developement purposes I use local json for convinience//[load("52.json")]
+    @Published var matches: [MatchDatum] = []// for testing and developement purposes I use local json for convinience//[load("52.json")] so kindly change this variable accordingly
     @Published var showErrorPopup = false
     @Published var error: String = ""
     @Published var isLoading: Bool = false

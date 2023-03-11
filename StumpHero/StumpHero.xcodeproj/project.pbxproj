@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD4674F229BC952D008DB9FE /* WebServicePrefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4674F129BC952D008DB9FE /* WebServicePrefix.swift */; };
 		BD9775FD29BC76D7005F7FE6 /* PlayerListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9775FC29BC76D7005F7FE6 /* PlayerListRow.swift */; };
 		BD9775FE29BC897D005F7FE6 /* 52.json in Resources */ = {isa = PBXBuildFile; fileRef = F3D6745D29BA41A100623ED2 /* 52.json */; };
 		BD9775FF29BC897E005F7FE6 /* 52.json in Resources */ = {isa = PBXBuildFile; fileRef = F3D6745D29BA41A100623ED2 /* 52.json */; };
@@ -66,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BD4674F129BC952D008DB9FE /* WebServicePrefix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServicePrefix.swift; sourceTree = "<group>"; };
 		BD9775FC29BC76D7005F7FE6 /* PlayerListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListRow.swift; sourceTree = "<group>"; };
 		BDA2B3AD29B9DEA300F53381 /* StumpHero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StumpHero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDA2B3B029B9DEA300F53381 /* StumpHeroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StumpHeroApp.swift; sourceTree = "<group>"; };
@@ -129,6 +131,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD4674F029BC8F4A008DB9FE /* Dummy Json */ = {
+			isa = PBXGroup;
+			children = (
+				F3D6745D29BA41A100623ED2 /* 52.json */,
+				F3D6745C29BA41A100623ED2 /* 60.json */,
+			);
+			path = "Dummy Json";
+			sourceTree = "<group>";
+		};
 		BDA2B3A429B9DEA300F53381 = {
 			isa = PBXGroup;
 			children = (
@@ -267,8 +278,10 @@
 		BDA2B3F729B9E33400F53381 /* WebServices */ = {
 			isa = PBXGroup;
 			children = (
+				BD4674F129BC952D008DB9FE /* WebServicePrefix.swift */,
 				BDA2B3F829B9E34100F53381 /* AuthModel.swift */,
 				BDA2B40829B9FC8500F53381 /* WebServiceCollection.swift */,
+				BD4674F029BC8F4A008DB9FE /* Dummy Json */,
 			);
 			path = WebServices;
 			sourceTree = "<group>";
@@ -317,8 +330,6 @@
 		BDA2B40A29B9FEFF00F53381 /* DashboardViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				F3D6745D29BA41A100623ED2 /* 52.json */,
-				F3D6745C29BA41A100623ED2 /* 60.json */,
 				BDA2B40B29B9FF0C00F53381 /* DashboardViewModel.swift */,
 			);
 			path = DashboardViewModel;
@@ -550,6 +561,7 @@
 				F374F83929BB9F3C00BB92C4 /* PlayerDetailsPopup.swift in Sources */,
 				BDA2B3B129B9DEA300F53381 /* StumpHeroApp.swift in Sources */,
 				F3D6745929BA2FFB00623ED2 /* FilterView.swift in Sources */,
+				BD4674F229BC952D008DB9FE /* WebServicePrefix.swift in Sources */,
 				BDA2B3EC29B9E22500F53381 /* Dashboard.swift in Sources */,
 				BDB7C6DB29BB559B0046B64C /* ProfileView.swift in Sources */,
 				BDA2B40929B9FC8500F53381 /* WebServiceCollection.swift in Sources */,

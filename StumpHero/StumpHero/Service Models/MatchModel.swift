@@ -298,6 +298,42 @@ struct MatchPlayer: Codable, Hashable, Identifiable {
             }
             return info.isEmpty ? "Player" : info
         }
+    
+    var battingPositions : String {
+        if let order = Int(position){
+            switch order {
+            case 0:
+                return ""
+            case 1:
+                return "Opening Batsman"
+            case 2:
+                return "Second Batsman"
+            case 3:
+                return "Third Batsman"
+            case 4:
+                return "Fourth Batsman"
+            case 5:
+                return "Fifth Batsman"
+            case 6:
+                return "Sixth Batsman"
+            case 7:
+                return "Seventh Batsman"
+            case 8:
+                return "Eighth Batsman"
+            case 9:
+                return "Ninth Batsman"
+            case 10:
+                return "Tenth Batsman"
+            case 11:
+                return "Eleventh Batsman"
+            default:
+                return ""
+            }
+        } else {
+            return ""
+        }
+    }
+
 }
 
 // MARK: - MatchBatting

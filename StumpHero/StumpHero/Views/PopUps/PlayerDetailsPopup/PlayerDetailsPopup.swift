@@ -31,6 +31,13 @@ struct PlayerDetailsPopup: View {
                     .bold()
                     
                     Spacer()
+                    
+                    Text(Player?.battingPositions ?? "")
+                        .foregroundColor(.primary)
+                    .font(.title2)
+                    .bold()
+                    
+                    
                 }.padding()
                 ScrollView(.horizontal, showsIndicators: false) {
                     

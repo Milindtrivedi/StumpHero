@@ -50,7 +50,7 @@ struct MatchView: View {
                                     .clipShape(Capsule())
                                     .opacity(isAnimating ? 1.0 : 0.1)
                             }
-                            
+                            .disabled(true)
                         }.padding()
                     }
                 } else {

@@ -15,7 +15,7 @@ final class StumpHeroTests: XCTestCase {
     @MainActor func testGetMatchData() async throws {
         let viewModel = DashboardViewModel(getMatchCase: MockGetMatchCase())
         XCTAssertFalse(viewModel.isLoading)
-        XCTAssertFalse(viewModel.matches.isEmpty)
+        XCTAssertTrue(viewModel.matches.isEmpty) //FOCUS HERE SEE ARRAY OF MATCHES IS EMPTY HERE
         XCTAssertFalse(viewModel.showErrorPopup)
         XCTAssertTrue(viewModel.error.isEmpty)
         
@@ -24,7 +24,7 @@ final class StumpHeroTests: XCTestCase {
         
         // Assert that the function correctly updates the view model properties
         XCTAssertFalse(viewModel.isLoading)
-        XCTAssertFalse(viewModel.matches.isEmpty)
+        XCTAssertFalse(viewModel.matches.isEmpty) //ARRAY OF MATCHES IS FETCHED FROM SERVER HERE
         XCTAssertFalse(viewModel.showErrorPopup)
         XCTAssertTrue(viewModel.error.isEmpty)
     }

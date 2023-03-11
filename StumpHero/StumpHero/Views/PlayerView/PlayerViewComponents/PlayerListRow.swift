@@ -2,8 +2,8 @@
 //  PlayerListRow.swift
 //  StumpHero
 //
-//  Created by Apple on 11/03/23.
-//
+//  Created by Milind Trivedi on 11/03/23.
+//  © Copyright 2023 Milind Trivedi All rights reserved
 
 import SwiftUI
 

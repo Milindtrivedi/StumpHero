@@ -17,6 +17,13 @@ class getMatchCaseImpl: getMatchCase {
         
         if isConnectedToNetwork() {
             
+            //MARK: - IMPORTANT READ INSTRUCTIONS GIVEN BELOW FIRST !!
+            
+            //MARK: - IN ORDER TO SWITCH URL JUST CHANGE THE GetWSUrl(.nzin/or/.sapk)
+            /// This will automatically return string constructed with Endpoint with baseURL
+            /// This comes very handy when dealing with large list of webservice calls
+            /// And most impotantly avoid duplicate and will also help with managing API verison
+            
             let url = WebServicePrefix.GetWSUrl(.sapk)
             guard let url = URL(string: url) else {
                 throw MyError.invalidInput(message: ErrorMessages.InvalidURL)
@@ -31,29 +38,4 @@ class getMatchCaseImpl: getMatchCase {
             throw MyError.networkError(message: ErrorMessages.InternetErr)
         }
     }
-}
-
-let BASE_URL = "https://demo.sportz.io/"
-
-struct WebServicePrefix {
-    
-    static func GetWSUrl(_ serviceType : WSRequestType) -> String {
-        
-        var serviceURl: NSString?
-        switch serviceType {
-        case .nzin:
-            serviceURl = "nzin01312019187360.json"
-            break
-        case .sapk:
-            serviceURl = "sapk01222019186652.json"
-            break
-        }
-        return "\(BASE_URL)\(serviceURl!)"
-    }
-}
-    
-
-public enum WSRequestType : Int {
-    case nzin
-    case sapk
 }

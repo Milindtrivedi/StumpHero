@@ -64,11 +64,11 @@ struct Dashboard: View {
         
         .background(Color("viewBG"))
         
-//        .task {
-//            if viewModel.matches.isEmpty {
-//                await viewModel.getMatchData()
-//            }
-//        }
+        .task {
+            if viewModel.matches.isEmpty {
+                await viewModel.getMatchData()
+            }
+        }
         
         .alert(isPresented: $viewModel.showErrorPopup) {
             Alert(title: Text(viewModel.error),
