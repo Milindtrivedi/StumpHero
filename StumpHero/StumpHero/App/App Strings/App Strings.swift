@@ -55,3 +55,15 @@ final class ErrorMessages {
     static let InternetErr = "You are not connected with the internet please check your connectivity"
     static let InvalidURL = "URL is Invalid"
 }
+
+
+final class Notifications {
+    static let Title = "Hello! This is Milind"
+    static let Body = "Please don't forget to check out UI in both Dark and Light mode"
+    static let timeInterval = TimeInterval(60)
+    
+    static let PrompAlertTitle = "Notification Permission Required"
+    static let PrompAlertSubTitle = "This app requires notification permission to send you reminders."
+    static let PrompAlertYes = "Yes"
+    static let PrompAlertNo = "No"
+}

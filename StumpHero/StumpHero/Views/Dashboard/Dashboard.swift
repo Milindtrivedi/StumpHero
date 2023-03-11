@@ -15,6 +15,8 @@ struct Dashboard: View {
     @AppStorage("selection") var selection = 0
     @State var ShowPlayerScreen = false
     @AppStorage("Filterselection") var Filterselection = 0
+    let notificationManager = NotificationManager()
+    @State var ShowNotificationAlert = false
     
     //MARK: - BODY
     
@@ -90,6 +92,32 @@ struct Dashboard: View {
                         viewModel.isLoading = false
                     }
             }
+        }
+        
+        .onAppear{
+            notificationManager.requestPermission { granted in
+                if granted {
+                    ShowNotificationAlert = false
+                    notificationManager.scheduleNotification(title: Notifications.Title, body: Notifications.Body, timeInterval: Notifications.timeInterval)
+                } else {
+                    ShowNotificationAlert = true
+                }
+            }
+        }
+        
+        .alert(isPresented: $ShowNotificationAlert) {
+            Alert(title: Text(Notifications.PrompAlertTitle),
+                  message: Text(Notifications.PrompAlertSubTitle),
+                  primaryButton: .destructive(Text(Notifications.PrompAlertNo)) {
+                ShowNotificationAlert = false
+            },
+                  secondaryButton: .default(Text(Notifications.PrompAlertYes)) {
+                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                    return
+                }
+                
+                UIApplication.shared.open(settingsUrl)
+            })
         }
     }
 }
