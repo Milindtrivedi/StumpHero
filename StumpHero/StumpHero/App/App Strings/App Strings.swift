@@ -2,10 +2,13 @@
 //  App Strings.swift
 //  StumpHero
 //
-//  Created by Apple on 09/03/23.
-//
+//  Created by Milind Trivedi on 09/03/23.
+//  © Copyright 2023 Milind Trivedi All rights reserved
 
 import SwiftUI
+
+/// This file contains all strings that are being used in app for the convinience of changes as it's centralized
+/// This will also help with localization i.e changing app Languages
 
 final class AppStrings {
     static let loginTitle = "Sign in"
@@ -33,7 +36,22 @@ final class AppStrings {
     static let filterLiveTitle = "Live"
     static let filterUpcomingTitle = "Upcoming"
     static let filterNewsTitle = "News"
+    static let BattingTitle = "Batting"
+    static let BattingStyle = "Style"
+    static let BattingAverage = "Average"
+    static let BattingStrikerate = "Strikerate"
+    static let BattingRuns = "Runs"
+    static let BowlingTitle = "Bowling"
+    static let BowlingStyle = "Style"
+    static let BowlingAverage = "Average"
+    static let BowlingEconomyrate = "Economyrate"
+    static let BowlingWickets = "Wickets"
     
 }
 
 
+final class ErrorMessages {
+    static let IncorrectLoginInput = "Username and Password is incorrect"
+    static let InternetErr = "You are not connected with the internet please check your connectivity"
+    static let InvalidURL = "URL is Invalid"
+}

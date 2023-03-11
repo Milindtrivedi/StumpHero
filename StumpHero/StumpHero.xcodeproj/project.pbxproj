@@ -14,7 +14,6 @@
 		BDA2B3CC29B9DEA500F53381 /* StumpHeroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B3CB29B9DEA500F53381 /* StumpHeroUITests.swift */; };
 		BDA2B3CE29B9DEA500F53381 /* StumpHeroUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B3CD29B9DEA500F53381 /* StumpHeroUITestsLaunchTests.swift */; };
 		BDA2B3DF29B9E00000F53381 /* App Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B3DE29B9E00000F53381 /* App Strings.swift */; };
-		BDA2B3E429B9E04600F53381 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B3E329B9E04600F53381 /* AppConstants.swift */; };
 		BDA2B3E829B9E0CF00F53381 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B3E729B9E0CF00F53381 /* SplashScreen.swift */; };
 		BDA2B3EC29B9E22500F53381 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B3EB29B9E22500F53381 /* Dashboard.swift */; };
 		BDA2B3EF29B9E25C00F53381 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B3EE29B9E25C00F53381 /* LoginView.swift */; };
@@ -70,7 +69,6 @@
 		BDA2B3CB29B9DEA500F53381 /* StumpHeroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StumpHeroUITests.swift; sourceTree = "<group>"; };
 		BDA2B3CD29B9DEA500F53381 /* StumpHeroUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StumpHeroUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BDA2B3DE29B9E00000F53381 /* App Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Strings.swift"; sourceTree = "<group>"; };
-		BDA2B3E329B9E04600F53381 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		BDA2B3E729B9E0CF00F53381 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		BDA2B3EB29B9E22500F53381 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		BDA2B3EE29B9E25C00F53381 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -209,7 +207,6 @@
 			isa = PBXGroup;
 			children = (
 				BDA2B40029B9EDA600F53381 /* LaunchScreen */,
-				BDA2B3E029B9E01700F53381 /* App Constants */,
 				BDA2B3DD29B9DFF000F53381 /* App Strings */,
 				BDA2B3B029B9DEA300F53381 /* StumpHeroApp.swift */,
 			);
@@ -222,14 +219,6 @@
 				BDA2B3DE29B9E00000F53381 /* App Strings.swift */,
 			);
 			path = "App Strings";
-			sourceTree = "<group>";
-		};
-		BDA2B3E029B9E01700F53381 /* App Constants */ = {
-			isa = PBXGroup;
-			children = (
-				BDA2B3E329B9E04600F53381 /* AppConstants.swift */,
-			);
-			path = "App Constants";
 			sourceTree = "<group>";
 		};
 		BDA2B3E929B9E20B00F53381 /* Splash */ = {
@@ -551,7 +540,6 @@
 				BDB7C6DB29BB559B0046B64C /* ProfileView.swift in Sources */,
 				BDA2B40929B9FC8500F53381 /* WebServiceCollection.swift in Sources */,
 				BDA2B3DF29B9E00000F53381 /* App Strings.swift in Sources */,
-				BDA2B3E429B9E04600F53381 /* AppConstants.swift in Sources */,
 				BDA2B3F929B9E34100F53381 /* AuthModel.swift in Sources */,
 				BDB7C6E229BB56190046B64C /* LogoutPopUp.swift in Sources */,
 				F3D6745729BA2C2F00623ED2 /* HeaderView.swift in Sources */,

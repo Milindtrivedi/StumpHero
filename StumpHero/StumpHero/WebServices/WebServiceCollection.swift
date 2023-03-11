@@ -2,8 +2,8 @@
 //  WebServiceCollection.swift
 //  StumpHero
 //
-//  Created by Apple on 09/03/23.
-//
+//  Created by Milind Trivedi on 09/03/23.
+//  © Copyright 2023 Milind Trivedi All rights reserved
 
 import Foundation
 
@@ -19,7 +19,7 @@ class getMatchCaseImpl: getMatchCase {
             
             let url = WebServicePrefix.GetWSUrl(.sapk)
             guard let url = URL(string: url) else {
-                throw MyError.invalidInput(message: "URL is Invalid")
+                throw MyError.invalidInput(message: ErrorMessages.InvalidURL)
             }
             
             let (data, _) = try await URLSession.shared.data(from: url)
@@ -28,7 +28,7 @@ class getMatchCaseImpl: getMatchCase {
             return STRVO_MTCH
             
         } else {
-            throw MyError.networkError(message: "You are not connected with the internet please check your connectivity")
+            throw MyError.networkError(message: ErrorMessages.InternetErr)
         }
     }
 }

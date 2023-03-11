@@ -2,8 +2,8 @@
 //  AuthModel.swift
 //  StumpHero
 //
-//  Created by Apple on 09/03/23.
-//
+//  Created by Milind Trivedi on 09/03/23.
+//  © Copyright 2023 Milind Trivedi All rights reserved
 
 import Foundation
 
@@ -22,10 +22,10 @@ class AuthModel {
                     completion(.success("authenticated"))
                 }
             } else {
-                throw MyError.invalidInput(message: "Username and Password is incorrect")
+                throw MyError.invalidInput(message: ErrorMessages.IncorrectLoginInput)
             }
         }  else {
-            throw MyError.networkError(message: "You are not connected with the internet please check your connectivity")
+            throw MyError.networkError(message: ErrorMessages.InternetErr)
         }
     }
 }

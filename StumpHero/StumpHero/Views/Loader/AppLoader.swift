@@ -2,12 +2,14 @@
 //  AppLoader.swift
 //  StumpHero
 //
-//  Created by Apple on 09/03/23.
-//
+//  Created by Milind Trivedi on 09/03/23.
+//  © Copyright 2023 Milind Trivedi All rights reserved
 
 import SwiftUI
 
 struct AppLoader: View {
+    
+    //MARK: - PROPERTIES
     
     @State private var drawingStroke = false
     let customloadingclr = Color(#colorLiteral(red: 0.9725490196, green: 0.6078431373, blue: 0.02745098039, alpha: 1))
@@ -16,6 +18,7 @@ struct AppLoader: View {
         .repeatForever(autoreverses: false)
         .delay(0.5)
     
+    //MARK: - BODY
     var body: some View {
         ZStack {
             ring(for: customloadingclr)
@@ -44,6 +47,7 @@ struct AppLoader: View {
     }
 }
 
+//MARK: - PREVIEW
 struct AppLoader_Previews: PreviewProvider {
     static var previews: some View {
         AppLoader()

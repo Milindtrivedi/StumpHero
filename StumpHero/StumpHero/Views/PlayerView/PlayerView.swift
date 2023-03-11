@@ -2,16 +2,16 @@
 //  PlayerView.swift
 //  StumpHero
 //
-//  Created by Apple on 10/03/23.
-//
+//  Created by Milind Trivedi on 10/03/23.
+//  © Copyright 2023 Milind Trivedi All rights reserved
 
 import SwiftUI
 
 struct PlayerView: View {
     
+    //MARK: - PROPERTIES
     @State private var searchText = ""
     @AppStorage("Filterselection") var Filterselection = 0
-    
     var vm : DashboardViewModel
     var rows : MatchDatum
     var playerList = [MatchTeam]()
@@ -125,7 +125,7 @@ struct PlayerView: View {
     }
     
     
-    
+    //MARK: - BODY
     var body: some View {
         
         VStack(spacing: 16.0) {
@@ -163,7 +163,7 @@ struct PlayerView: View {
                                             Text(player.playerInfo)
                                             
                                         }.padding()
-                                            .foregroundColor(.white)
+                                            .foregroundColor(.primary)
                                     }
                                     
                                 } else {
@@ -182,14 +182,14 @@ struct PlayerView: View {
                                                 Text(player.playerInfo)
                                                 
                                             }.padding()
-                                                .foregroundColor(.white)
+                                                .foregroundColor(.primary)
                                         }
                                         
                                     }
                                 }
                                 
                             }
-                            .listRowBackground(Color(hex: AppConstants.ViewBackGroundClr))
+                            .listRowBackground(Color("viewBG"))
                             
                         } else {
                             
@@ -210,7 +210,7 @@ struct PlayerView: View {
                                             Text(player.playerInfo)
                                             
                                         }.padding()
-                                            .foregroundColor(.white)
+                                            .foregroundColor(.primary)
                                     }
                                     
                                     
@@ -231,19 +231,19 @@ struct PlayerView: View {
                                                 Text(player.playerInfo)
                                                 
                                             }.padding()
-                                                .foregroundColor(.white)
+                                                .foregroundColor(.primary)
                                         }
                                     }
                                 }
                             }
-                            .listRowBackground(Color(hex: AppConstants.ViewBackGroundClr))
+                            .listRowBackground(Color("viewBG"))
                         }
                     }
                 }//.listStyle(.plain)
             }
         }
         .background(
-            Color(hex: AppConstants.ViewBackGroundClr)
+            Color("viewBG")
         )
         .popup(isPresented: $ShowPlayerPopUp, type: .floater(verticalPadding: 0, useSafeAreaInset: true), position: .bottom, closeOnTap: false, closeOnTapOutside: true, backgroundColor: .black.opacity(0.4)) {
             
@@ -252,11 +252,9 @@ struct PlayerView: View {
             
         }
     }
-    
-    
-    
 }
 
+//MARK: - PREVIEW
 struct PlayerView_Previews: PreviewProvider {
     static var previews: some View {
         let json : [MatchDatum] = [load("60.json")]

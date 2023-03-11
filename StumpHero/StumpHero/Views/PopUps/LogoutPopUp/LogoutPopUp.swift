@@ -2,27 +2,28 @@
 //  LogoutPopUp.swift
 //  StumpHero
 //
-//  Created by Apple on 10/03/23.
-//
+//  Created by Milind Trivedi on 10/03/23.
+//  © Copyright 2023 Milind Trivedi All rights reserved
 
 import SwiftUI
 struct LogoutPopUp: View {
-    
+    //MARK: - PROPERTIES
     @Binding var isPresented: Bool
     @AppStorage("isOnboarding") var isOnboarding : Bool = true
     @Environment(\.presentationMode) var presentationMode : Binding<PresentationMode>
     
+    //MARK: - BODY
     var body: some View {
         VStack(spacing: 12) {
             
             Text(AppStrings.LogoutTitle)
-                .foregroundColor(.white)
+                .foregroundColor(.primary)
                 .font(.system(size: 24))
                 .bold()
                 .padding(.top, 12)
             
             Text(AppStrings.LogoutSubTitle)
-                .foregroundColor(.white)
+                .foregroundColor(.primary)
                 .font(.system(size: 16))
                 .opacity(0.6)
                 .multilineTextAlignment(.center)
@@ -41,7 +42,7 @@ struct LogoutPopUp: View {
                         .padding(.vertical, 18)
                         .padding(.horizontal, 24)
                         .foregroundColor(.white)
-                        .background(Color(hex: AppConstants.LogoutPopUpBtnClr))
+                        .background(Color("LogoutPopUpBtnClr"))
                         .cornerRadius(7)
                 }.buttonStyle(.plain)
                 
@@ -56,7 +57,7 @@ struct LogoutPopUp: View {
                         .padding(.vertical, 18)
                         .padding(.horizontal, 24)
                         .foregroundColor(.white)
-                        .background(Color(hex: AppConstants.LogoutPopUpBtnClr))
+                        .background(Color("LogoutPopUpBtnClr"))
                         .cornerRadius(7)
                 }.buttonStyle(.plain)
                 
@@ -64,13 +65,12 @@ struct LogoutPopUp: View {
             
         }
         .padding(EdgeInsets(top: 37, leading: 24, bottom: 40, trailing: 24))
-        .background(Color(hex: AppConstants.PopUpBgClr
-                         ).cornerRadius(20))
+        .background(Color("viewBG").cornerRadius(20))
         .shadowedStyle()
         .padding(.horizontal, 40)
     }
 }
-
+//MARK: - PREVIEW
 struct LogoutPopUp_Previews: PreviewProvider {
     static var previews: some View {
         LogoutPopUp(isPresented: .constant(true))

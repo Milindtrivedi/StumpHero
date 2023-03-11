@@ -2,15 +2,17 @@
 //  SearchView.swift
 //  StumpHero
 //
-//  Created by Apple on 10/03/23.
-//
+//  Created by Milind Trivedi on 10/03/23.
+//  © Copyright 2023 Milind Trivedi All rights reserved
 
 import SwiftUI
 
 struct SearchView: View {
     
+    //MARK: - PROPERTIES
     @Binding var text: String
     
+    //MARK: - BODY
     var body: some View {
                 ZStack {
                     HStack {
@@ -43,7 +45,7 @@ struct SearchView: View {
             .padding(.horizontal)
         }
 }
-
+//MARK: - PREVIEW
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         SearchView(text: .constant("wer"))

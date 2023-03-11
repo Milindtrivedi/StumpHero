@@ -2,17 +2,21 @@
 //  Dashboard.swift
 //  StumpHero
 //
-//  Created by Apple on 09/03/23.
-//
+//  Created by Milind Trivedi on 09/03/23.
+//  © Copyright 2023 Milind Trivedi All rights reserved
 
 import SwiftUI
 
 struct Dashboard: View {
     
+    //MARK: - PROPERTIES
+    
     @StateObject private var viewModel = DashboardViewModel(getMatchCase: getMatchCaseImpl())
     @AppStorage("selection") var selection = 0
     @State var ShowPlayerScreen = false
     @AppStorage("Filterselection") var Filterselection = 0
+    
+    //MARK: - BODY
     
     var body: some View {
         
@@ -31,6 +35,7 @@ struct Dashboard: View {
                             ForEach(viewModel.matches, id: \.self) { rows in
                                 MatchView(vm: viewModel, rows: rows)
                                     .padding()
+                                    .shadow(color: Color.gray.opacity(0.5), radius: 3, x: 0, y: 0)
                                     .onTapGesture {
                                         Filterselection = 0
                                         ShowPlayerScreen = true
@@ -57,13 +62,13 @@ struct Dashboard: View {
             }
         }
         
-        .background(Color(hex: AppConstants.ViewBackGroundClr))
+        .background(Color("viewBG"))
         
-        .task {
-            if viewModel.matches.isEmpty {
-                await viewModel.getMatchData()
-            }
-        }
+//        .task {
+//            if viewModel.matches.isEmpty {
+//                await viewModel.getMatchData()
+//            }
+//        }
         
         .alert(isPresented: $viewModel.showErrorPopup) {
             Alert(title: Text(viewModel.error),
@@ -88,7 +93,7 @@ struct Dashboard: View {
         }
     }
 }
-
+//MARK: - PREVIEW
 struct Dashboard_Previews: PreviewProvider {
     static var previews: some View {
         Dashboard()

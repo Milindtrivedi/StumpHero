@@ -2,13 +2,13 @@
 //  ProfileView.swift
 //  StumpHero
 //
-//  Created by Apple on 10/03/23.
-//
+//  Created by Milind Trivedi on 10/03/23.
+//  © Copyright 2023 Milind Trivedi All rights reserved
 
 import SwiftUI
 
 struct ProfileView: View {
-    
+    //MARK: - PROPERTIES
     @Binding var isShowing : Bool
     @Environment(\.presentationMode) var presentationMode : Binding<PresentationMode>
     @State var popups = PopupsState()
@@ -18,6 +18,7 @@ struct ProfileView: View {
     @State var isShowNotifications = false
     @State var isShowUsers = false
     
+    //MARK: - BODY
     var body: some View {
         ZStack(alignment: .top) {
             
@@ -30,7 +31,7 @@ struct ProfileView: View {
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Image(systemName: "xmark")
-                            .foregroundColor(Color.white)
+                            .foregroundColor(.primary)
                     }
                     
                     .frame(height: 50.0)
@@ -44,7 +45,7 @@ struct ProfileView: View {
                 
                 Divider()
                     .frame(height: 3.0)
-                    .overlay(Color.white)
+                    .overlay(Color("Divider"))
                
                 Group {
                     HStack {
@@ -53,11 +54,11 @@ struct ProfileView: View {
                         } label: {
                             HStack(spacing: 16.0) {
                                 Image(systemName: "person.badge.key")
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.primary)
                                     .frame(width: 12.0, height: 12.0)
                                 Text(AppStrings.PermissionTitleTxt)
                                     .font(.system(size: 20, weight: .light))
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.primary)
                             }
                         }
                         .padding(.leading,16)
@@ -65,9 +66,7 @@ struct ProfileView: View {
                         Spacer()
                     }
                     Divider()
-                        .overlay {
-                            Color.white
-                        }
+                        .overlay(Color("Divider"))
                 }
                 Group {
                     HStack {
@@ -77,10 +76,10 @@ struct ProfileView: View {
                             HStack(spacing: 16.0) {
                                 Image(systemName: "person.2")
                                     .frame(width: 12.0, height: 12.0)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.primary)
                                 Text(AppStrings.UsersTitleTxt)
                                     .font(.system(size: 20, weight: .light))
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.primary)
                             }
                         }
                         .padding(.leading,16)
@@ -88,9 +87,7 @@ struct ProfileView: View {
                         Spacer()
                     }
                     Divider()
-                        .overlay {
-                            Color.white
-                        }
+                        .overlay(Color("Divider"))
                     
                 
                 
@@ -102,11 +99,11 @@ struct ProfileView: View {
                     } label: {
                         Text(AppStrings.SignOutTitleTxt)
                             .font(.system(size: 16.0, weight: .medium))
-                            .foregroundColor(.white)
+                            .foregroundColor(.primary)
                             .padding(.horizontal, 16)
                             .padding(.vertical, 8)
                     }
-                    .background(Color(hex: AppConstants.CapsuleBackGroundClr))
+                    .background(Color("CapsuleBackGroundClr"))
                     .clipShape(Capsule())
                     
                     Spacer()
@@ -119,7 +116,7 @@ struct ProfileView: View {
                 
             }
             .background(
-                Color.init(hex: AppConstants.ViewBackGroundClr)
+                Color("viewBG")
             )
         }
         .popup(isPresented: $popups.showingMiddle, type: .`default`, closeOnTap: false, backgroundColor: .black.opacity(0.4)) {
@@ -127,7 +124,7 @@ struct ProfileView: View {
         }
     }
 }
-
+//MARK: - PREVIEW
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView(isShowing: .constant(true))

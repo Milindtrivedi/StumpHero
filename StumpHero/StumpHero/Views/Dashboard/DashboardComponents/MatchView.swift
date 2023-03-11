@@ -3,17 +3,21 @@
 //  StumpHero
 //
 //  Created by Milind Trivedi on 09/03/23.
-//
+//  © Copyright 2023 Milind Trivedi All rights reserved
 
 import SwiftUI
 
 struct MatchView: View {
+    
+    //MARK: - PROPERTIES
     
     var vm : DashboardViewModel
     var rows : MatchDatum
     @State private var isAnimating: Bool = false
     @State private var ShowPlayerScreen = false
     @AppStorage("Filterselection") var Filterselection = 0
+    
+    //MARK: - BODY
     
     var body: some View {
         ZStack {
@@ -36,12 +40,12 @@ struct MatchView: View {
                                         .padding(.trailing, 10)
                                     
                                     Text(AppStrings.DashboardLivetxt)
-                                        .foregroundColor(Color(hex: AppConstants.TextlightGrayClr))
+                                        .foregroundColor(.secondary)
                                         .padding(.trailing, 10)
                                         .font(.callout)
                                 }.padding(8)
                                     .background(
-                                        Color(hex: AppConstants.CapsuleBackGroundClr)
+                                        Color("CapsuleBackGroundClr")
                                     )
                                     .clipShape(Capsule())
                                     .opacity(isAnimating ? 1.0 : 0.1)
@@ -60,12 +64,12 @@ struct MatchView: View {
                     } label: {
                         VStack(alignment: .center) {
                             Text(vm.getTeamName(data: self.rows, id: rows.matchdetail.teamHome)?.nameShort ?? "err")
-                                .foregroundColor(.white)
+                                .foregroundColor(.primary)
                                 .font(.largeTitle)
                                 .bold()
                             
                             Text(vm.getTeamName(data: self.rows,id: rows.matchdetail.teamHome)?.nameFull ?? "err")
-                                .foregroundColor(.white)
+                                .foregroundColor(.primary)
                                 .font(.callout)
                                 .bold()
                         }
@@ -73,7 +77,7 @@ struct MatchView: View {
                         .padding()
                     
                     Text(AppStrings.versustxt)
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                     
                     
                     Button {
@@ -83,12 +87,12 @@ struct MatchView: View {
                         
                         VStack(alignment: .center){
                             Text(vm.getTeamName(data: self.rows,id: rows.matchdetail.teamAway)?.nameShort ?? "err")
-                                .foregroundColor(.white)
+                                .foregroundColor(.primary)
                                 .font(.largeTitle)
                                 .bold()
                             
                             Text(vm.getTeamName(data: self.rows,id: rows.matchdetail.teamAway)?.nameFull ?? "err")
-                                .foregroundColor(.white)
+                                .foregroundColor(.primary)
                                 .font(.callout)
                                 .bold()
                             
@@ -112,21 +116,20 @@ struct MatchView: View {
                     HStack(alignment: .center){
                         Text(AppStrings.venue + rows.matchdetail.venue.name)
                         vm.getSystemImage(for: rows.matchdetail.weather)
-                            .foregroundColor(.white)
+                            .foregroundColor(.primary)
                     }
                 }
                 .padding()
                 .padding()
-                //.foregroundColor(Color(hex:AppConstants.TextYellowClr))
-                .foregroundColor(Color.white)
-                .background(Color(.black).opacity(0.5))
+                .foregroundColor(.primary)
+                .background(Color("CapsuleBackGroundClr"))
                 .cornerRadius(10)
                 Spacer()
             }
         }
         .frame(width: UIScreen.screenWidth - 20)
         .background(
-            Color(hex: AppConstants.MatchViewBgClr)
+            Color("MatchViewBgClr")
         )
         .cornerRadius(12.0)
         .onAppear{
@@ -143,6 +146,7 @@ struct MatchView: View {
     }
 }
 
+//MARK: - PREVIEW
 struct MatchView_Previews: PreviewProvider {
     static var previews: some View {
         

@@ -2,8 +2,8 @@
 //  LoginView.swift
 //  StumpHero
 //
-//  Created by Apple on 09/03/23.
-//
+//  Created by Milind Trivedi on 09/03/23.
+//  © Copyright 2023 Milind Trivedi All rights reserved
 
 import SwiftUI
 
@@ -13,7 +13,7 @@ struct LoginView: View {
     
     @ObservedObject var viewModel = LoginViewModel()
     @AppStorage("isOnboarding") var isOnboarding : Bool = true
-    private var borderColour = Color(hex: AppConstants.LoginBorderClr)
+    private var borderColour = Color("LoginBorderClr")
     @State private var isSecured: Bool = true
     
     
@@ -26,14 +26,13 @@ struct LoginView: View {
                     Image(systemName: "figure.cricket")
                         .resizable()
                         .scaledToFit()
-//                        .frame(width: UIScreen.screenWidth * 1.0, height: UIScreen.screenWidth * 1.0)
                         .opacity(0.1)
-                        .foregroundColor(Color(hex: AppConstants.TextYellowClr))
+                        .foregroundColor(Color("YellowHue"))
                     
                     VStack(alignment: .center, spacing: 16.0) {
                         TextField("", text: $viewModel.username)
                             .placeholder(when: viewModel.username.isEmpty) {
-                                Text(AppStrings.Username).foregroundColor(Color(hex: AppConstants.LoginPlaceHolderClr))
+                                Text(AppStrings.Username).foregroundColor(Color("LoginPlaceHolderClr"))
                                     .font(.system(size: 18, weight: .bold, design: .default))
                                 
                             }
@@ -57,7 +56,7 @@ struct LoginView: View {
                                 if isSecured {
                                     SecureField("", text: $viewModel.password)
                                         .placeholder(when: viewModel.password.isEmpty) {
-                                            Text(AppStrings.Password).foregroundColor(Color(hex: AppConstants.LoginPlaceHolderClr))
+                                            Text(AppStrings.Password).foregroundColor(Color("LoginPlaceHolderClr"))
                                                 .font(.system(size: 18, weight: .bold, design: .default))
                                         }
                                     
@@ -70,7 +69,7 @@ struct LoginView: View {
                                 } else {
                                     TextField("", text: $viewModel.password)
                                         .placeholder(when: viewModel.password.isEmpty) {
-                                            Text(AppStrings.Password).foregroundColor(Color(hex: AppConstants.LoginPlaceHolderClr))
+                                            Text(AppStrings.Password).foregroundColor(Color("LoginPlaceHolderClr"))
                                                 .font(.system(size: 18, weight: .bold, design: .default))
                                         }
                                     
@@ -94,7 +93,7 @@ struct LoginView: View {
                         Button {
                             viewModel.login()
                         } label: {
-                            Text("Sign In")
+                            Text(AppStrings.loginTitle)
                                 .font(.system(size: 18, weight: .bold, design: .default))
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
@@ -102,7 +101,7 @@ struct LoginView: View {
                                 .frame(maxWidth: .infinity)
                                 .background(
                                     RoundedRectangle(cornerRadius: 7)
-                                        .fill(Color(hex: AppConstants.LogoutPopUpBtnClr))
+                                        .fill(Color("LogoutPopUpBtnClr"))
                                     //.shadow(color: .white, radius: 2, x: 0, y: 2)
                                 )
                         }
@@ -120,7 +119,7 @@ struct LoginView: View {
                 .navigationBarHidden(false)
                 
                 .background(
-                    Color(hex: AppConstants.ViewBackGroundClr)
+                    Color("viewBG")
                 )
             }
         }

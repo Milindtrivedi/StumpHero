@@ -2,8 +2,8 @@
 //  StumpHeroUITestsLaunchTests.swift
 //  StumpHeroUITests
 //
-//  Created by Apple on 09/03/23.
-//
+//  Created by Milind Trivedi on 09/03/23.
+//  © Copyright 2023 Milind Trivedi All rights reserved
 
 import XCTest
 

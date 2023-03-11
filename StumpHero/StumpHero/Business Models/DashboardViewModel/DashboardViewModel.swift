@@ -2,8 +2,8 @@
 //  DashboardViewModel.swift
 //  StumpHero
 //
-//  Created by Apple on 09/03/23.
-//
+//  Created by Milind Trivedi on 09/03/23.
+//  © Copyright 2023 Milind Trivedi All rights reserved
 
 import SwiftUI
 
@@ -11,7 +11,7 @@ import SwiftUI
 class DashboardViewModel: ObservableObject {
     
     private let getMatchCase: getMatchCase
-    @Published var matches: [MatchDatum] = []// for testing and developement purposes I use local json for convinience//[load("52.json")]
+    @Published var matches: [MatchDatum] = [load("52.json")]// for testing and developement purposes I use local json for convinience//[load("52.json")]
     @Published var showErrorPopup = false
     @Published var error: String = ""
     @Published var isLoading: Bool = false
