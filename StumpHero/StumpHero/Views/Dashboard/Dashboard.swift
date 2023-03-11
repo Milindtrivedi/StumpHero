@@ -23,7 +23,7 @@ struct Dashboard: View {
             FilterView()
                 .padding(.horizontal)
             
-            if selection == 0 {
+            if selection == 0 && !viewModel.matches.isEmpty {
                 Group {
                     ScrollView {
                         VStack(spacing: 16.0) {
@@ -59,9 +59,11 @@ struct Dashboard: View {
         
         .background(Color(hex: AppConstants.ViewBackGroundClr))
         
-        //        .task {
-        //            await viewModel.getMatchData()
-        //        }
+        .task {
+            if viewModel.matches.isEmpty {
+                await viewModel.getMatchData()
+            }
+        }
         
         .alert(isPresented: $viewModel.showErrorPopup) {
             Alert(title: Text(viewModel.error),

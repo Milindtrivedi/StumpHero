@@ -17,7 +17,8 @@ class getMatchCaseImpl: getMatchCase {
         
         if isConnectedToNetwork() {
             
-            guard let url = URL(string: "https://demo.sportz.io/sapk01222019186652.json") else {
+            let url = WebServicePrefix.GetWSUrl(.sapk)
+            guard let url = URL(string: url) else {
                 throw MyError.invalidInput(message: "URL is Invalid")
             }
             
@@ -30,4 +31,29 @@ class getMatchCaseImpl: getMatchCase {
             throw MyError.networkError(message: "You are not connected with the internet please check your connectivity")
         }
     }
+}
+
+let BASE_URL = "https://demo.sportz.io/"
+
+struct WebServicePrefix {
+    
+    static func GetWSUrl(_ serviceType : WSRequestType) -> String {
+        
+        var serviceURl: NSString?
+        switch serviceType {
+        case .nzin:
+            serviceURl = "nzin01312019187360.json"
+            break
+        case .sapk:
+            serviceURl = "sapk01222019186652.json"
+            break
+        }
+        return "\(BASE_URL)\(serviceURl!)"
+    }
+}
+    
+
+public enum WSRequestType : Int {
+    case nzin
+    case sapk
 }
