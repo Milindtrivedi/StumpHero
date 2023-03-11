@@ -154,16 +154,8 @@ struct PlayerView: View {
                                         ShowPlayerPopUp = true
                                         
                                     } label: {
-                                        HStack(spacing: 8.0){
-                                            Text(player.position)
-                                            Text(player.nameFull)
-                                            
-                                            Spacer()
-                                            
-                                            Text(player.playerInfo)
-                                            
-                                        }.padding()
-                                            .foregroundColor(.primary)
+                                        PlayerListRow(Player: player)
+                                            .shadow(color: Color.gray.opacity(0.5), radius: 3, x: 0, y: 0)
                                     }
                                     
                                 } else {
@@ -173,16 +165,8 @@ struct PlayerView: View {
                                             TappedPlayer = player
                                             ShowPlayerPopUp = true
                                         } label: {
-                                            HStack(spacing: 8.0){
-                                                Text(player.position)
-                                                Text(player.nameFull)
-                                                
-                                                Spacer()
-                                                
-                                                Text(player.playerInfo)
-                                                
-                                            }.padding()
-                                                .foregroundColor(.primary)
+                                            PlayerListRow(Player: player)
+                                                .shadow(color: Color.gray.opacity(0.5), radius: 3, x: 0, y: 0)
                                         }
                                         
                                     }
@@ -201,16 +185,8 @@ struct PlayerView: View {
                                         TappedPlayer = player
                                         ShowPlayerPopUp = true
                                     } label: {
-                                        HStack(spacing: 8.0){
-                                            Text(player.position)
-                                            Text(player.nameFull)
-                                            
-                                            Spacer()
-                                            
-                                            Text(player.playerInfo)
-                                            
-                                        }.padding()
-                                            .foregroundColor(.primary)
+                                        PlayerListRow(Player: player)
+                                            .shadow(color: Color.gray.opacity(0.5), radius: 3, x: 0, y: 0)
                                     }
                                     
                                     
@@ -222,16 +198,8 @@ struct PlayerView: View {
                                             TappedPlayer = player
                                             ShowPlayerPopUp = true
                                         } label: {
-                                            HStack(spacing: 8.0){
-                                                Text(player.position)
-                                                Text(player.nameFull)
-                                                
-                                                Spacer()
-                                                
-                                                Text(player.playerInfo)
-                                                
-                                            }.padding()
-                                                .foregroundColor(.primary)
+                                            PlayerListRow(Player: player)
+                                                .shadow(color: Color.gray.opacity(0.5), radius: 3, x: 0, y: 0)
                                         }
                                     }
                                 }
@@ -239,7 +207,8 @@ struct PlayerView: View {
                             .listRowBackground(Color("viewBG"))
                         }
                     }
-                }//.listStyle(.plain)
+                    .listRowSeparator(SwiftUI.Visibility.hidden)
+                }.listStyle(.plain)
             }
         }
         .background(

@@ -46,7 +46,7 @@ final class AppStrings {
     static let BowlingAverage = "Average"
     static let BowlingEconomyrate = "Economyrate"
     static let BowlingWickets = "Wickets"
-    
+    static let viewButtonTitle = "VIEW"
 }
 
 

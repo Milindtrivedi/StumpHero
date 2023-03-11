@@ -20,7 +20,11 @@ struct ProfileHeaderView: View {
                 Image(systemName: imageName)
                     .resizable()
                     .frame(width: 100,height: 100)
-                    .foregroundColor(.primary)
+                    .foregroundColor(Color("ImgForeGroundClr"))
+                    .background(
+                        Color.clear
+                            .clipShape(Circle())
+                    )
                 
                 Text(personName)
                     .font(.title)
