@@ -155,7 +155,7 @@ struct PlayerView: View {
                                         
                                     } label: {
                                         PlayerListRow(Player: player)
-                                            .shadow(color: Color.gray.opacity(0.5), radius: 3, x: 0, y: 0)
+                                            .shadow(color: player.HighLighterColour, radius: 3, x: 0, y: 0)
                                     }
                                     
                                 } else {
@@ -166,7 +166,7 @@ struct PlayerView: View {
                                             ShowPlayerPopUp = true
                                         } label: {
                                             PlayerListRow(Player: player)
-                                                .shadow(color: Color.gray.opacity(0.5), radius: 3, x: 0, y: 0)
+                                                .shadow(color: player.HighLighterColour, radius: 3, x: 0, y: 0)
                                         }
                                         
                                     }
@@ -186,7 +186,7 @@ struct PlayerView: View {
                                         ShowPlayerPopUp = true
                                     } label: {
                                         PlayerListRow(Player: player)
-                                            .shadow(color: Color.gray.opacity(0.5), radius: 3, x: 0, y: 0)
+                                            .shadow(color: player.HighLighterColour, radius: 3, x: 0, y: 0)
                                     }
                                     
                                     
@@ -199,7 +199,7 @@ struct PlayerView: View {
                                             ShowPlayerPopUp = true
                                         } label: {
                                             PlayerListRow(Player: player)
-                                                .shadow(color: Color.gray.opacity(0.5), radius: 3, x: 0, y: 0)
+                                                .shadow(color: player.HighLighterColour, radius: 3, x: 0, y: 0)
                                         }
                                     }
                                 }

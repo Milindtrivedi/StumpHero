@@ -16,6 +16,7 @@ struct Dashboard: View {
     @State var ShowPlayerScreen = false
     @AppStorage("Filterselection") var Filterselection = 0
     let notificationManager = NotificationManager()
+    @State private var hasRequestedNotificationPermission = false
     @State var ShowNotificationAlert = false
     
     //MARK: - BODY
@@ -95,13 +96,16 @@ struct Dashboard: View {
         }
         
         .onAppear{
-            notificationManager.requestPermission { granted in
-                if granted {
-                    ShowNotificationAlert = false
-                    notificationManager.scheduleNotification(title: Notifications.Title, body: Notifications.Body, timeInterval: Notifications.timeInterval)
-                } else {
-                    ShowNotificationAlert = true
+            if !hasRequestedNotificationPermission {
+                notificationManager.requestPermission { granted in
+                    if granted {
+                        ShowNotificationAlert = false
+                        notificationManager.scheduleNotification(title: Notifications.Title, body: Notifications.Body, timeInterval: Notifications.timeInterval)
+                    } else {
+                        ShowNotificationAlert = true
+                    }
                 }
+                hasRequestedNotificationPermission = true
             }
         }
         

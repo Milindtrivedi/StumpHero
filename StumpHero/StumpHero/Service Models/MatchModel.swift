@@ -6,6 +6,7 @@
 //  © Copyright 2023 Milind Trivedi All rights reserved
 
 import Foundation
+import SwiftUI
 
 // MARK: - MatchDatum
 struct MatchDatum: Codable, Hashable, Identifiable {
@@ -15,7 +16,7 @@ struct MatchDatum: Codable, Hashable, Identifiable {
     let innings: [MatchInning]
     let teams: [String: MatchTeam]
     let notes: [String: [String]]
-
+    
     enum CodingKeys: String, CodingKey {
         case matchdetail = "Matchdetail"
         case nuggets = "Nuggets"
@@ -37,7 +38,7 @@ struct MatchInning: Codable, Hashable, Identifiable {
     let fallofWickets: [MatchFallofWicket]
     let powerPlay: MatchPowerPlay
     let target: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case number = "Number"
         case battingteam = "Battingteam"
@@ -67,7 +68,7 @@ struct MatchInningBatsman: Codable, Hashable, Identifiable {
     let sixes, dots, strikerate, dismissal: String
     let howout, bowler, fielder: String
     let isonstrike: Bool?
-
+    
     enum CodingKeys: String, CodingKey {
         case batsman = "Batsman"
         case runs = "Runs"
@@ -92,7 +93,7 @@ struct MatchBowler: Codable, Hashable, Identifiable {
     let dots: String
     let isbowlingtandem, isbowlingnow: Bool?
     let thisOver: [MatchThisOver]?
-
+    
     enum CodingKeys: String, CodingKey {
         case bowler = "Bowler"
         case overs = "Overs"
@@ -113,7 +114,7 @@ struct MatchBowler: Codable, Hashable, Identifiable {
 struct MatchThisOver: Codable, Hashable, Identifiable {
     let id = UUID()
     let t, b: String
-
+    
     enum CodingKeys: String, CodingKey {
         case t = "T"
         case b = "B"
@@ -124,7 +125,7 @@ struct MatchThisOver: Codable, Hashable, Identifiable {
 struct MatchFallofWicket: Codable, Hashable, Identifiable {
     let id = UUID()
     let batsman, score, overs: String
-
+    
     enum CodingKeys: String, CodingKey {
         case batsman = "Batsman"
         case score = "Score"
@@ -137,7 +138,7 @@ struct MatchPartnershipCurrent: Codable, Hashable, Identifiable {
     let id = UUID()
     let runs, balls: String
     let batsmen: [MatchPartnershipCurrentBatsman]
-
+    
     enum CodingKeys: String, CodingKey {
         case runs = "Runs"
         case balls = "Balls"
@@ -149,7 +150,7 @@ struct MatchPartnershipCurrent: Codable, Hashable, Identifiable {
 struct MatchPartnershipCurrentBatsman: Codable, Hashable, Identifiable {
     let id = UUID()
     let batsman, runs, balls: String
-
+    
     enum CodingKeys: String, CodingKey {
         case batsman = "Batsman"
         case runs = "Runs"
@@ -161,7 +162,7 @@ struct MatchPartnershipCurrentBatsman: Codable, Hashable, Identifiable {
 struct MatchPowerPlay: Codable, Hashable, Identifiable {
     let id = UUID()
     let pp1, pp2: String
-
+    
     enum CodingKeys: String, CodingKey {
         case pp1 = "PP1"
         case pp2 = "PP2"
@@ -179,7 +180,7 @@ struct Matchdetail: Codable, Hashable,Identifiable {
     let weather, tosswonby, status, statusID: String
     let playerMatch, result, winningteam, winmargin: String
     let equation: String
-
+    
     enum CodingKeys: String, CodingKey {
         case teamHome = "Team_Home"
         case teamAway = "Team_Away"
@@ -205,7 +206,7 @@ struct Match: Codable, Hashable, Identifiable {
     let livecoverage, iid, code, league: String
     let number, type, date, time: String
     let offset, daynight: String
-
+    
     enum CodingKeys: String, CodingKey {
         case livecoverage = "Livecoverage"
         case iid = "Id"
@@ -224,7 +225,7 @@ struct Match: Codable, Hashable, Identifiable {
 struct MatchOfficials: Codable, Hashable, Identifiable {
     let umpires, referee: String
     let id = UUID()
-
+    
     enum CodingKeys: String, CodingKey {
         case umpires = "Umpires"
         case referee = "Referee"
@@ -236,7 +237,7 @@ struct MatchSeries: Codable, Hashable, Identifiable {
     let id = UUID()
     let IId, name, status, tour: String
     let tourName: String
-
+    
     enum CodingKeys: String, CodingKey {
         case IId = "Id"
         case name = "Name"
@@ -250,7 +251,7 @@ struct MatchSeries: Codable, Hashable, Identifiable {
 struct MatchVenue: Codable, Hashable, Identifiable {
     let id = UUID(), name: String
     let IId = UUID()
-
+    
     enum CodingKeys: String, CodingKey {
         case IId = "Id"
         case name = "Name"
@@ -262,7 +263,7 @@ struct MatchTeam: Codable, Hashable, Identifiable {
     let id = UUID()
     let nameFull, nameShort: String
     let players: [String: MatchPlayer]
-
+    
     enum CodingKeys: String, CodingKey {
         case nameFull = "Name_Full"
         case nameShort = "Name_Short"
@@ -278,7 +279,7 @@ struct MatchPlayer: Codable, Hashable, Identifiable {
     let batting: MatchBatting
     let bowling: MatchBowling
     let iscaptain: Bool?
-
+    
     enum CodingKeys: String, CodingKey {
         case position = "Position"
         case nameFull = "Name_Full"
@@ -289,15 +290,29 @@ struct MatchPlayer: Codable, Hashable, Identifiable {
     }
     
     var playerInfo: String {
-            var info = ""
-            if let iskeeper = iskeeper, iskeeper {
-                info += "Wicketkeeper "
-            }
-            if let iscaptain = iscaptain, iscaptain {
-                info += "Captain"
-            }
-            return info.isEmpty ? "Player" : info
+        var info = ""
+        if let iskeeper = iskeeper, iskeeper {
+            info += "Wicketkeeper "
         }
+        if let iscaptain = iscaptain, iscaptain {
+            info += "Captain"
+        }
+        return info.isEmpty ? "Player" : info
+    }
+    
+    var HighLighterColour: Color {
+        var clr = Color.gray.opacity(0.5)
+        if let iskeeper = iskeeper, iskeeper {
+            clr = Color.green.opacity(0.5)
+        }
+        if let iscaptain = iscaptain, iscaptain {
+            clr = Color.red.opacity(0.5)
+        }
+        if let iskeeper = iskeeper, let iscaptain = iscaptain, iskeeper && iscaptain {
+              clr = Color.pink.opacity(0.5)
+        }
+        return clr
+    }
     
     var battingPositions : String {
         if let order = Int(position){
@@ -333,7 +348,7 @@ struct MatchPlayer: Codable, Hashable, Identifiable {
             return ""
         }
     }
-
+    
 }
 
 // MARK: - MatchBatting
@@ -341,7 +356,7 @@ struct MatchBatting: Codable, Hashable, Identifiable {
     let id = UUID()
     let style: MatchStyle
     let average, strikerate, runs: String
-
+    
     enum CodingKeys: String, CodingKey {
         case style = "Style"
         case average = "Average"
@@ -359,7 +374,7 @@ enum MatchStyle: String, Codable {
 struct MatchBowling: Codable, Hashable, Identifiable {
     let id = UUID()
     let style, average, economyrate, wickets: String
-
+    
     enum CodingKeys: String, CodingKey {
         case style = "Style"
         case average = "Average"
