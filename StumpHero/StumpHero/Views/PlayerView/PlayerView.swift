@@ -18,7 +18,7 @@ struct PlayerView: View {
     var playersArrHome = [MatchPlayer]()
     var playersArrAway = [MatchPlayer]()
     @State var ShowPlayerPopUp = false
-    @State private var TappedPlayer = MatchPlayer(position: "1", nameFull: "Milind",iskeeper: false, batting: MatchBatting(style: MatchStyle.lhb, average: "17.60", strikerate: "99.43", runs: "176"), bowling: MatchBowling(style: "RFM", average: "27.21", economyrate: "5.66", wickets: "71"), iscaptain: false)
+    @State private var TappedPlayer : MatchPlayer?
     
     init(searchText: String = "", Filterselection: Int = 0, vm: DashboardViewModel, rows: MatchDatum) {
         self.vm = vm
@@ -149,10 +149,10 @@ struct PlayerView: View {
                             ForEach(playersArrHome) { player in
                                 if searchText.isEmpty {
                                     Button {
-                                        
+                                        dissmissKeyBoard()
                                         TappedPlayer = player
                                         ShowPlayerPopUp = true
-                                       
+                                        
                                     } label: {
                                         HStack(spacing: 8.0){
                                             Text(player.position)
@@ -169,6 +169,7 @@ struct PlayerView: View {
                                 } else {
                                     if player.nameFull.localizedCaseInsensitiveContains(searchText.trimmingCharacters(in: .whitespaces)){
                                         Button {
+                                            dissmissKeyBoard()
                                             TappedPlayer = player
                                             ShowPlayerPopUp = true
                                         } label: {
@@ -196,6 +197,7 @@ struct PlayerView: View {
                                 if searchText.isEmpty {
                                     
                                     Button {
+                                        dissmissKeyBoard()
                                         TappedPlayer = player
                                         ShowPlayerPopUp = true
                                     } label: {
@@ -216,6 +218,7 @@ struct PlayerView: View {
                                     if player.nameFull.localizedCaseInsensitiveContains(searchText.trimmingCharacters(in: .whitespaces)){
                                         
                                         Button {
+                                            dissmissKeyBoard()
                                             TappedPlayer = player
                                             ShowPlayerPopUp = true
                                         } label: {
@@ -230,32 +233,21 @@ struct PlayerView: View {
                                             }.padding()
                                                 .foregroundColor(.white)
                                         }
-                                        
-                                        
-                                        
-                                        
                                     }
                                 }
                             }
                             .listRowBackground(Color(hex: AppConstants.ViewBackGroundClr))
                         }
                     }
-                    
                 }//.listStyle(.plain)
             }
         }
         .background(
             Color(hex: AppConstants.ViewBackGroundClr)
         )
-        
-        .onAppear {
-            TappedPlayer = playersArrHome.first!
-        }
-        
-        
         .popup(isPresented: $ShowPlayerPopUp, type: .floater(verticalPadding: 0, useSafeAreaInset: true), position: .bottom, closeOnTap: false, closeOnTapOutside: true, backgroundColor: .black.opacity(0.4)) {
             
-                PlayerDetailsPopup(Player: TappedPlayer)
+            PlayerDetailsPopup(Player: $TappedPlayer)
             
             
         }
@@ -268,8 +260,6 @@ struct PlayerView: View {
 struct PlayerView_Previews: PreviewProvider {
     static var previews: some View {
         let json : [MatchDatum] = [load("60.json")]
-        
-        
         PlayerView(vm: DashboardViewModel(getMatchCase: getMatchCaseImpl()), rows: json.first!)
     }
 }

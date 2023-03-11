@@ -92,3 +92,13 @@ func load<T: Decodable>(_ filename: String) -> T {
         fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
     }
 }
+
+
+func dissmissKeyBoard() {
+    
+    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+        let keyWindow = windowScene.windows.filter { $0.isKeyWindow }.first
+        keyWindow?.endEditing(true)
+    }
+    
+}

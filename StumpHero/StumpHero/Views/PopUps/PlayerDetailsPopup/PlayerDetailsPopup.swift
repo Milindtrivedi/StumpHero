@@ -9,14 +9,14 @@ import SwiftUI
 
 struct PlayerDetailsPopup: View {
     
-    var Player : MatchPlayer
+    @Binding var Player : MatchPlayer?
     
     var body: some View {
         ZStack{
             VStack(spacing: 16.0){
-                ProfileHeaderView(imageName: "person.circle.fill", personName: Player.nameFull)
+                ProfileHeaderView(imageName: "person.circle.fill", personName: Player?.nameFull ?? "")
                 
-                Text(Player.playerInfo)
+                Text(Player?.playerInfo ?? "")
                     .foregroundColor(.white)
                 
                 Divider()
@@ -39,7 +39,7 @@ struct PlayerDetailsPopup: View {
                             Text("Style")
                                 .font(.title3)
                                 .bold()
-                            Text(Player.batting.style.rawValue)
+                            Text(Player?.batting.style.rawValue ?? "")
                         }.padding(.horizontal)
                             .foregroundColor(.white)
                         
@@ -52,7 +52,7 @@ struct PlayerDetailsPopup: View {
                             Text("Average")
                                 .font(.title3)
                                 .bold()
-                            Text(Player.batting.average)
+                            Text(Player?.batting.average ?? "")
                         }.padding(.horizontal)
                             .foregroundColor(.white)
                         
@@ -65,7 +65,7 @@ struct PlayerDetailsPopup: View {
                             Text("Strikerate")
                                 .font(.title3)
                                 .bold()
-                            Text(Player.batting.strikerate)
+                            Text(Player?.batting.strikerate ?? "")
                         }.padding(.horizontal)
                             .foregroundColor(.white)
                         
@@ -78,7 +78,7 @@ struct PlayerDetailsPopup: View {
                             Text("Runs")
                                 .font(.title3)
                                 .bold()
-                            Text(Player.batting.runs)
+                            Text(Player?.batting.runs ?? "")
                         }.padding(.horizontal)
                             .foregroundColor(.white)
                     }
@@ -99,7 +99,7 @@ struct PlayerDetailsPopup: View {
                             Text("Style")
                                 .font(.title3)
                                 .bold()
-                            Text(Player.bowling.style)
+                            Text(Player?.bowling.style ?? "")
                         }.padding(.horizontal)
                             .foregroundColor(.white)
                         
@@ -112,7 +112,7 @@ struct PlayerDetailsPopup: View {
                             Text("Average")
                                 .font(.title3)
                                 .bold()
-                            Text(Player.bowling.average)
+                            Text(Player?.bowling.average ?? "")
                         }.padding(.horizontal)
                             .foregroundColor(.white)
                         
@@ -125,7 +125,7 @@ struct PlayerDetailsPopup: View {
                             Text("Economyrate")
                                 .font(.title3)
                                 .bold()
-                            Text(Player.bowling.economyrate)
+                            Text(Player?.bowling.economyrate ?? "")
                         }.padding(.horizontal)
                             .foregroundColor(.white)
                         
@@ -138,7 +138,7 @@ struct PlayerDetailsPopup: View {
                             Text("Wickets")
                                 .font(.title3)
                                 .bold()
-                            Text(Player.bowling.wickets)
+                            Text(Player?.bowling.wickets ?? "")
                         }.padding(.horizontal)
                             .foregroundColor(.white)
                     }
@@ -154,6 +154,6 @@ struct PlayerDetailsPopup: View {
 
 struct PlayerDetailsPopup_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerDetailsPopup(Player: MatchPlayer(position: "1", nameFull: "Milind",iskeeper: false, batting: MatchBatting(style: MatchStyle.lhb, average: "17.60", strikerate: "99.43", runs: "176"), bowling: MatchBowling(style: "RFM", average: "27.21", economyrate: "5.66", wickets: "71"), iscaptain: false))
+        PlayerDetailsPopup(Player: .constant(MatchPlayer(position: "1", nameFull: "Milind",iskeeper: false, batting: MatchBatting(style: MatchStyle.lhb, average: "17.60", strikerate: "99.43", runs: "176"), bowling: MatchBowling(style: "RFM", average: "27.21", economyrate: "5.66", wickets: "71"), iscaptain: false)))
     }
 }

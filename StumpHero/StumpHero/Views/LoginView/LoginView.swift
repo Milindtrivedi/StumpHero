@@ -47,10 +47,7 @@ struct LoginView: View {
                                 ToolbarItemGroup(placement: .keyboard) {
                                     Spacer()
                                     Button(AppStrings.ToolBarButtonTitle) {
-                                        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-                                            let keyWindow = windowScene.windows.filter { $0.isKeyWindow }.first
-                                            keyWindow?.endEditing(true)
-                                        }
+                                        dissmissKeyBoard()
                                     }.padding(.trailing, 16)
                                 }
                             }
