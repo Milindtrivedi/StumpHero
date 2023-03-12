@@ -33,6 +33,10 @@ Screen 4: Profile
 This is where the user will be able to make changes to one's profile information such as permissions, name & profile picture. By tapping on Sign out button a popup will be displayed from where the user will be able to logout from the device. 
 
 
+# UNIT TESTING. 
+- In this project I have written unit tests for API ASYNC Call, various functions in View - Model that writtens cruicial values for clearly delineating logic and whether or not the functions work so please go through it 
+
+
 - LAUNCH SCREEN
 
 ![LaunchScreen](https://user-images.githubusercontent.com/15359399/224530106-df89122e-fd9a-4d3c-91a3-6a63544b858c.png)
