@@ -34,7 +34,7 @@ This is where the user will be able to make changes to one's profile information
 
 
 # UNIT TESTING. 
-- In this project I have written unit tests for API ASYNC Call, various functions in View - Model that writtens cruicial values for clearly delineating logic and whether or not the functions work so please go through it 
+- In this project I have written unit tests for API ASYNC Await Call, and also for various other functions in View - Model that returns cruicial values for UI. Consequently, clearly delineating logic and whether or not the functions work so please go through it !! 
 
 
 - LAUNCH SCREEN
