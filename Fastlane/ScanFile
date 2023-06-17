@@ -4,7 +4,7 @@
 project "StumpHero/StumpHero.xcodeproj"
 scheme "StumpHero"
 sdk "iphonesimulator"
-device "iPhone 14 Pro Max (16.4)"
+device "iPhone 14 Pro Max (16.4.1)"
 code_coverage true
 xcargs '-parallelizeTargets'
 prelaunch_simulator true
