@@ -13,6 +13,12 @@ final class StumpHeroTests: XCTestCase {
     
     // Test case for checking if getMatchData function is working as expected
     @MainActor func testGetMatchData() async throws {
+        
+        let loginModel = LoginViewModel()
+        loginModel.username = "milind"
+        loginModel.password = "apple"
+        loginModel.login()
+        
         let viewModel = DashboardViewModel(getMatchCase: MockGetMatchCase())
         XCTAssertFalse(viewModel.isLoading)
         XCTAssertTrue(viewModel.matches.isEmpty) //FOCUS HERE SEE ARRAY OF MATCHES IS EMPTY HERE
